@@ -1,0 +1,1394 @@
+Terminals unused in grammar
+
+   DOT
+   COMMENT
+
+
+State 10 conflicts: 1 shift/reduce
+State 34 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: tree $end
+
+    1 tree: /* empty */
+    2     | tree node
+    3     | tree brace
+    4     | tree ifstmnt
+    5     | tree SEMICOLON
+    6     | tree END
+
+    7 lparen: LPAREN
+    8       | lparen node
+
+    9 paren: lparen RPAREN
+   10      | lparen END
+
+   11 lbrack: LBRACK
+   12       | lbrack node
+
+   13 brack: lbrack RBRACK
+   14      | lbrack END
+
+   15 lbrace: LBRACE
+   16       | lbrace node
+   17       | lbrace brace
+   18       | lbrace SEMICOLON
+
+   19 brace: lbrace RBRACE
+   20      | lbrace END
+
+   21 node: node UNIOPERATOR0
+   22     | UNIOPERATOR1 node
+   23     | UNKNOWN
+   24     | addsub
+   25     | muldiv
+   26     | powroot
+   27     | equal
+   28     | type
+   29     | TAG
+   30     | CONSTANT
+   31     | NAME
+   32     | NAME paren
+   33     | TYPE brace
+   34     | paren
+   35     | brack
+   36     | error
+
+   37 ifstmnt: iffull
+   38        | ifempty
+
+   39 iffull: ifempty ELSE node
+   40       | ifempty ELSE brace
+
+   41 ifempty: IF paren node
+   42        | IF paren brace
+
+   43 type: TYPE NAME
+   44     | TYPE NAME paren brace
+
+   45 addsub: node OPERATOR0 node
+
+   46 muldiv: node OPERATOR1 node
+
+   47 powroot: node OPERATOR2 node
+
+   48 equal: node OPERATOR3 node
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256) 36
+ELSE (258) 39 40
+IF (259) 41 42
+OPERATOR0 (260) 45
+OPERATOR1 (261) 46
+OPERATOR2 (262) 47
+OPERATOR3 (263) 48
+UNIOPERATOR1 (264) 22
+UNIOPERATOR0 (265) 21
+DOT (266)
+SEMICOLON (267) 5 18
+COMMENT (268)
+LPAREN (269) 7
+RPAREN (270) 9
+LBRACK (271) 11
+RBRACK (272) 13
+LBRACE (273) 15
+RBRACE (274) 19
+NAME (275) 31 32 43 44
+TYPE (276) 33 43 44
+TAG (277) 29
+UNKNOWN (278) 23
+END (279) 6 10 14 20
+CONSTANT (280) 30
+
+
+Nonterminals, with rules where they appear
+
+$accept (26)
+    on left: 0
+tree (27)
+    on left: 1 2 3 4 5 6, on right: 0 2 3 4 5 6
+lparen (28)
+    on left: 7 8, on right: 8 9 10
+paren (29)
+    on left: 9 10, on right: 32 34 41 42 44
+lbrack (30)
+    on left: 11 12, on right: 12 13 14
+brack (31)
+    on left: 13 14, on right: 35
+lbrace (32)
+    on left: 15 16 17 18, on right: 16 17 18 19 20
+brace (33)
+    on left: 19 20, on right: 3 17 33 40 42 44
+node (34)
+    on left: 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36, on right:
+    2 8 12 16 21 22 39 41 45 46 47 48
+ifstmnt (35)
+    on left: 37 38, on right: 4
+iffull (36)
+    on left: 39 40, on right: 37
+ifempty (37)
+    on left: 41 42, on right: 38 39 40
+type (38)
+    on left: 43 44, on right: 28
+addsub (39)
+    on left: 45, on right: 24
+muldiv (40)
+    on left: 46, on right: 25
+powroot (41)
+    on left: 47, on right: 26
+equal (42)
+    on left: 48, on right: 27
+
+
+state 0
+
+    0 $accept: . tree $end
+    1 tree: .
+    2     | . tree node
+    3     | . tree brace
+    4     | . tree ifstmnt
+    5     | . tree SEMICOLON
+    6     | . tree END
+
+    $default  reduce using rule 1 (tree)
+
+    tree  go to state 1
+
+
+state 1
+
+    0 $accept: tree . $end
+    2 tree: tree . node
+    3     | tree . brace
+    4     | tree . ifstmnt
+    5     | tree . SEMICOLON
+    6     | tree . END
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   11 lbrack: . LBRACK
+   12       | . lbrack node
+   13 brack: . lbrack RBRACK
+   14      | . lbrack END
+   15 lbrace: . LBRACE
+   16       | . lbrace node
+   17       | . lbrace brace
+   18       | . lbrace SEMICOLON
+   19 brace: . lbrace RBRACE
+   20      | . lbrace END
+   21 node: . node UNIOPERATOR0
+   22     | . UNIOPERATOR1 node
+   23     | . UNKNOWN
+   24     | . addsub
+   25     | . muldiv
+   26     | . powroot
+   27     | . equal
+   28     | . type
+   29     | . TAG
+   30     | . CONSTANT
+   31     | . NAME
+   32     | . NAME paren
+   33     | . TYPE brace
+   34     | . paren
+   35     | . brack
+   36     | . error
+   37 ifstmnt: . iffull
+   38        | . ifempty
+   39 iffull: . ifempty ELSE node
+   40       | . ifempty ELSE brace
+   41 ifempty: . IF paren node
+   42        | . IF paren brace
+   43 type: . TYPE NAME
+   44     | . TYPE NAME paren brace
+   45 addsub: . node OPERATOR0 node
+   46 muldiv: . node OPERATOR1 node
+   47 powroot: . node OPERATOR2 node
+   48 equal: . node OPERATOR3 node
+
+    $end          shift, and go to state 2
+    error         shift, and go to state 3
+    IF            shift, and go to state 4
+    UNIOPERATOR1  shift, and go to state 5
+    SEMICOLON     shift, and go to state 6
+    LPAREN        shift, and go to state 7
+    LBRACK        shift, and go to state 8
+    LBRACE        shift, and go to state 9
+    NAME          shift, and go to state 10
+    TYPE          shift, and go to state 11
+    TAG           shift, and go to state 12
+    UNKNOWN       shift, and go to state 13
+    END           shift, and go to state 14
+    CONSTANT      shift, and go to state 15
+
+    lparen   go to state 16
+    paren    go to state 17
+    lbrack   go to state 18
+    brack    go to state 19
+    lbrace   go to state 20
+    brace    go to state 21
+    node     go to state 22
+    ifstmnt  go to state 23
+    iffull   go to state 24
+    ifempty  go to state 25
+    type     go to state 26
+    addsub   go to state 27
+    muldiv   go to state 28
+    powroot  go to state 29
+    equal    go to state 30
+
+
+state 2
+
+    0 $accept: tree $end .
+
+    $default  accept
+
+
+state 3
+
+   36 node: error .
+
+    $default  reduce using rule 36 (node)
+
+
+state 4
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   41 ifempty: IF . paren node
+   42        | IF . paren brace
+
+    LPAREN  shift, and go to state 7
+
+    lparen  go to state 16
+    paren   go to state 31
+
+
+state 5
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   11 lbrack: . LBRACK
+   12       | . lbrack node
+   13 brack: . lbrack RBRACK
+   14      | . lbrack END
+   21 node: . node UNIOPERATOR0
+   22     | . UNIOPERATOR1 node
+   22     | UNIOPERATOR1 . node
+   23     | . UNKNOWN
+   24     | . addsub
+   25     | . muldiv
+   26     | . powroot
+   27     | . equal
+   28     | . type
+   29     | . TAG
+   30     | . CONSTANT
+   31     | . NAME
+   32     | . NAME paren
+   33     | . TYPE brace
+   34     | . paren
+   35     | . brack
+   36     | . error
+   43 type: . TYPE NAME
+   44     | . TYPE NAME paren brace
+   45 addsub: . node OPERATOR0 node
+   46 muldiv: . node OPERATOR1 node
+   47 powroot: . node OPERATOR2 node
+   48 equal: . node OPERATOR3 node
+
+    error         shift, and go to state 3
+    UNIOPERATOR1  shift, and go to state 5
+    LPAREN        shift, and go to state 7
+    LBRACK        shift, and go to state 8
+    NAME          shift, and go to state 10
+    TYPE          shift, and go to state 11
+    TAG           shift, and go to state 12
+    UNKNOWN       shift, and go to state 13
+    CONSTANT      shift, and go to state 15
+
+    lparen   go to state 16
+    paren    go to state 17
+    lbrack   go to state 18
+    brack    go to state 19
+    node     go to state 32
+    type     go to state 26
+    addsub   go to state 27
+    muldiv   go to state 28
+    powroot  go to state 29
+    equal    go to state 30
+
+
+state 6
+
+    5 tree: tree SEMICOLON .
+
+    $default  reduce using rule 5 (tree)
+
+
+state 7
+
+    7 lparen: LPAREN .
+
+    $default  reduce using rule 7 (lparen)
+
+
+state 8
+
+   11 lbrack: LBRACK .
+
+    $default  reduce using rule 11 (lbrack)
+
+
+state 9
+
+   15 lbrace: LBRACE .
+
+    $default  reduce using rule 15 (lbrace)
+
+
+state 10
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   31 node: NAME .  [$end, error, ELSE, IF, OPERATOR0, OPERATOR1, OPERATOR2, OPERATOR3, UNIOPERATOR1, UNIOPERATOR0, SEMICOLON, LPAREN, RPAREN, LBRACK, RBRACK, LBRACE, RBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   32     | NAME . paren
+
+    LPAREN  shift, and go to state 7
+
+    LPAREN    [reduce using rule 31 (node)]
+    $default  reduce using rule 31 (node)
+
+    lparen  go to state 16
+    paren   go to state 33
+
+
+state 11
+
+   15 lbrace: . LBRACE
+   16       | . lbrace node
+   17       | . lbrace brace
+   18       | . lbrace SEMICOLON
+   19 brace: . lbrace RBRACE
+   20      | . lbrace END
+   33 node: TYPE . brace
+   43 type: TYPE . NAME
+   44     | TYPE . NAME paren brace
+
+    LBRACE  shift, and go to state 9
+    NAME    shift, and go to state 34
+
+    lbrace  go to state 20
+    brace   go to state 35
+
+
+state 12
+
+   29 node: TAG .
+
+    $default  reduce using rule 29 (node)
+
+
+state 13
+
+   23 node: UNKNOWN .
+
+    $default  reduce using rule 23 (node)
+
+
+state 14
+
+    6 tree: tree END .
+
+    $default  reduce using rule 6 (tree)
+
+
+state 15
+
+   30 node: CONSTANT .
+
+    $default  reduce using rule 30 (node)
+
+
+state 16
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    8       | lparen . node
+    9 paren: . lparen RPAREN
+    9      | lparen . RPAREN
+   10      | . lparen END
+   10      | lparen . END
+   11 lbrack: . LBRACK
+   12       | . lbrack node
+   13 brack: . lbrack RBRACK
+   14      | . lbrack END
+   21 node: . node UNIOPERATOR0
+   22     | . UNIOPERATOR1 node
+   23     | . UNKNOWN
+   24     | . addsub
+   25     | . muldiv
+   26     | . powroot
+   27     | . equal
+   28     | . type
+   29     | . TAG
+   30     | . CONSTANT
+   31     | . NAME
+   32     | . NAME paren
+   33     | . TYPE brace
+   34     | . paren
+   35     | . brack
+   36     | . error
+   43 type: . TYPE NAME
+   44     | . TYPE NAME paren brace
+   45 addsub: . node OPERATOR0 node
+   46 muldiv: . node OPERATOR1 node
+   47 powroot: . node OPERATOR2 node
+   48 equal: . node OPERATOR3 node
+
+    error         shift, and go to state 3
+    UNIOPERATOR1  shift, and go to state 5
+    LPAREN        shift, and go to state 7
+    RPAREN        shift, and go to state 36
+    LBRACK        shift, and go to state 8
+    NAME          shift, and go to state 10
+    TYPE          shift, and go to state 11
+    TAG           shift, and go to state 12
+    UNKNOWN       shift, and go to state 13
+    END           shift, and go to state 37
+    CONSTANT      shift, and go to state 15
+
+    lparen   go to state 16
+    paren    go to state 17
+    lbrack   go to state 18
+    brack    go to state 19
+    node     go to state 38
+    type     go to state 26
+    addsub   go to state 27
+    muldiv   go to state 28
+    powroot  go to state 29
+    equal    go to state 30
+
+
+state 17
+
+   34 node: paren .
+
+    $default  reduce using rule 34 (node)
+
+
+state 18
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   11 lbrack: . LBRACK
+   12       | . lbrack node
+   12       | lbrack . node
+   13 brack: . lbrack RBRACK
+   13      | lbrack . RBRACK
+   14      | . lbrack END
+   14      | lbrack . END
+   21 node: . node UNIOPERATOR0
+   22     | . UNIOPERATOR1 node
+   23     | . UNKNOWN
+   24     | . addsub
+   25     | . muldiv
+   26     | . powroot
+   27     | . equal
+   28     | . type
+   29     | . TAG
+   30     | . CONSTANT
+   31     | . NAME
+   32     | . NAME paren
+   33     | . TYPE brace
+   34     | . paren
+   35     | . brack
+   36     | . error
+   43 type: . TYPE NAME
+   44     | . TYPE NAME paren brace
+   45 addsub: . node OPERATOR0 node
+   46 muldiv: . node OPERATOR1 node
+   47 powroot: . node OPERATOR2 node
+   48 equal: . node OPERATOR3 node
+
+    error         shift, and go to state 3
+    UNIOPERATOR1  shift, and go to state 5
+    LPAREN        shift, and go to state 7
+    LBRACK        shift, and go to state 8
+    RBRACK        shift, and go to state 39
+    NAME          shift, and go to state 10
+    TYPE          shift, and go to state 11
+    TAG           shift, and go to state 12
+    UNKNOWN       shift, and go to state 13
+    END           shift, and go to state 40
+    CONSTANT      shift, and go to state 15
+
+    lparen   go to state 16
+    paren    go to state 17
+    lbrack   go to state 18
+    brack    go to state 19
+    node     go to state 41
+    type     go to state 26
+    addsub   go to state 27
+    muldiv   go to state 28
+    powroot  go to state 29
+    equal    go to state 30
+
+
+state 19
+
+   35 node: brack .
+
+    $default  reduce using rule 35 (node)
+
+
+state 20
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   11 lbrack: . LBRACK
+   12       | . lbrack node
+   13 brack: . lbrack RBRACK
+   14      | . lbrack END
+   15 lbrace: . LBRACE
+   16       | . lbrace node
+   16       | lbrace . node
+   17       | . lbrace brace
+   17       | lbrace . brace
+   18       | . lbrace SEMICOLON
+   18       | lbrace . SEMICOLON
+   19 brace: . lbrace RBRACE
+   19      | lbrace . RBRACE
+   20      | . lbrace END
+   20      | lbrace . END
+   21 node: . node UNIOPERATOR0
+   22     | . UNIOPERATOR1 node
+   23     | . UNKNOWN
+   24     | . addsub
+   25     | . muldiv
+   26     | . powroot
+   27     | . equal
+   28     | . type
+   29     | . TAG
+   30     | . CONSTANT
+   31     | . NAME
+   32     | . NAME paren
+   33     | . TYPE brace
+   34     | . paren
+   35     | . brack
+   36     | . error
+   43 type: . TYPE NAME
+   44     | . TYPE NAME paren brace
+   45 addsub: . node OPERATOR0 node
+   46 muldiv: . node OPERATOR1 node
+   47 powroot: . node OPERATOR2 node
+   48 equal: . node OPERATOR3 node
+
+    error         shift, and go to state 3
+    UNIOPERATOR1  shift, and go to state 5
+    SEMICOLON     shift, and go to state 42
+    LPAREN        shift, and go to state 7
+    LBRACK        shift, and go to state 8
+    LBRACE        shift, and go to state 9
+    RBRACE        shift, and go to state 43
+    NAME          shift, and go to state 10
+    TYPE          shift, and go to state 11
+    TAG           shift, and go to state 12
+    UNKNOWN       shift, and go to state 13
+    END           shift, and go to state 44
+    CONSTANT      shift, and go to state 15
+
+    lparen   go to state 16
+    paren    go to state 17
+    lbrack   go to state 18
+    brack    go to state 19
+    lbrace   go to state 20
+    brace    go to state 45
+    node     go to state 46
+    type     go to state 26
+    addsub   go to state 27
+    muldiv   go to state 28
+    powroot  go to state 29
+    equal    go to state 30
+
+
+state 21
+
+    3 tree: tree brace .
+
+    $default  reduce using rule 3 (tree)
+
+
+state 22
+
+    2 tree: tree node .  [$end, error, IF, UNIOPERATOR1, SEMICOLON, LPAREN, LBRACK, LBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   21 node: node . UNIOPERATOR0
+   45 addsub: node . OPERATOR0 node
+   46 muldiv: node . OPERATOR1 node
+   47 powroot: node . OPERATOR2 node
+   48 equal: node . OPERATOR3 node
+
+    OPERATOR0     shift, and go to state 47
+    OPERATOR1     shift, and go to state 48
+    OPERATOR2     shift, and go to state 49
+    OPERATOR3     shift, and go to state 50
+    UNIOPERATOR0  shift, and go to state 51
+
+    $default  reduce using rule 2 (tree)
+
+
+state 23
+
+    4 tree: tree ifstmnt .
+
+    $default  reduce using rule 4 (tree)
+
+
+state 24
+
+   37 ifstmnt: iffull .
+
+    $default  reduce using rule 37 (ifstmnt)
+
+
+state 25
+
+   38 ifstmnt: ifempty .  [$end, error, IF, UNIOPERATOR1, SEMICOLON, LPAREN, LBRACK, LBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   39 iffull: ifempty . ELSE node
+   40       | ifempty . ELSE brace
+
+    ELSE  shift, and go to state 52
+
+    $default  reduce using rule 38 (ifstmnt)
+
+
+state 26
+
+   28 node: type .
+
+    $default  reduce using rule 28 (node)
+
+
+state 27
+
+   24 node: addsub .
+
+    $default  reduce using rule 24 (node)
+
+
+state 28
+
+   25 node: muldiv .
+
+    $default  reduce using rule 25 (node)
+
+
+state 29
+
+   26 node: powroot .
+
+    $default  reduce using rule 26 (node)
+
+
+state 30
+
+   27 node: equal .
+
+    $default  reduce using rule 27 (node)
+
+
+state 31
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   11 lbrack: . LBRACK
+   12       | . lbrack node
+   13 brack: . lbrack RBRACK
+   14      | . lbrack END
+   15 lbrace: . LBRACE
+   16       | . lbrace node
+   17       | . lbrace brace
+   18       | . lbrace SEMICOLON
+   19 brace: . lbrace RBRACE
+   20      | . lbrace END
+   21 node: . node UNIOPERATOR0
+   22     | . UNIOPERATOR1 node
+   23     | . UNKNOWN
+   24     | . addsub
+   25     | . muldiv
+   26     | . powroot
+   27     | . equal
+   28     | . type
+   29     | . TAG
+   30     | . CONSTANT
+   31     | . NAME
+   32     | . NAME paren
+   33     | . TYPE brace
+   34     | . paren
+   35     | . brack
+   36     | . error
+   41 ifempty: IF paren . node
+   42        | IF paren . brace
+   43 type: . TYPE NAME
+   44     | . TYPE NAME paren brace
+   45 addsub: . node OPERATOR0 node
+   46 muldiv: . node OPERATOR1 node
+   47 powroot: . node OPERATOR2 node
+   48 equal: . node OPERATOR3 node
+
+    error         shift, and go to state 3
+    UNIOPERATOR1  shift, and go to state 5
+    LPAREN        shift, and go to state 7
+    LBRACK        shift, and go to state 8
+    LBRACE        shift, and go to state 9
+    NAME          shift, and go to state 10
+    TYPE          shift, and go to state 11
+    TAG           shift, and go to state 12
+    UNKNOWN       shift, and go to state 13
+    CONSTANT      shift, and go to state 15
+
+    lparen   go to state 16
+    paren    go to state 17
+    lbrack   go to state 18
+    brack    go to state 19
+    lbrace   go to state 20
+    brace    go to state 53
+    node     go to state 54
+    type     go to state 26
+    addsub   go to state 27
+    muldiv   go to state 28
+    powroot  go to state 29
+    equal    go to state 30
+
+
+state 32
+
+   21 node: node . UNIOPERATOR0
+   22     | UNIOPERATOR1 node .  [$end, error, ELSE, IF, OPERATOR0, OPERATOR1, OPERATOR2, OPERATOR3, UNIOPERATOR1, UNIOPERATOR0, SEMICOLON, LPAREN, RPAREN, LBRACK, RBRACK, LBRACE, RBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   45 addsub: node . OPERATOR0 node
+   46 muldiv: node . OPERATOR1 node
+   47 powroot: node . OPERATOR2 node
+   48 equal: node . OPERATOR3 node
+
+    $default  reduce using rule 22 (node)
+
+    Conflict between rule 22 and token OPERATOR0 resolved as reduce (OPERATOR0 < UNIOPERATOR1).
+    Conflict between rule 22 and token OPERATOR1 resolved as reduce (OPERATOR1 < UNIOPERATOR1).
+    Conflict between rule 22 and token OPERATOR2 resolved as reduce (OPERATOR2 < UNIOPERATOR1).
+    Conflict between rule 22 and token OPERATOR3 resolved as reduce (OPERATOR3 < UNIOPERATOR1).
+    Conflict between rule 22 and token UNIOPERATOR0 resolved as reduce (%left UNIOPERATOR0).
+
+
+state 33
+
+   32 node: NAME paren .
+
+    $default  reduce using rule 32 (node)
+
+
+state 34
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   43 type: TYPE NAME .  [$end, error, ELSE, IF, OPERATOR0, OPERATOR1, OPERATOR2, OPERATOR3, UNIOPERATOR1, UNIOPERATOR0, SEMICOLON, LPAREN, RPAREN, LBRACK, RBRACK, LBRACE, RBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   44     | TYPE NAME . paren brace
+
+    LPAREN  shift, and go to state 7
+
+    LPAREN    [reduce using rule 43 (type)]
+    $default  reduce using rule 43 (type)
+
+    lparen  go to state 16
+    paren   go to state 55
+
+
+state 35
+
+   33 node: TYPE brace .
+
+    $default  reduce using rule 33 (node)
+
+
+state 36
+
+    9 paren: lparen RPAREN .
+
+    $default  reduce using rule 9 (paren)
+
+
+state 37
+
+   10 paren: lparen END .
+
+    $default  reduce using rule 10 (paren)
+
+
+state 38
+
+    8 lparen: lparen node .  [error, UNIOPERATOR1, LPAREN, RPAREN, LBRACK, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   21 node: node . UNIOPERATOR0
+   45 addsub: node . OPERATOR0 node
+   46 muldiv: node . OPERATOR1 node
+   47 powroot: node . OPERATOR2 node
+   48 equal: node . OPERATOR3 node
+
+    OPERATOR0     shift, and go to state 47
+    OPERATOR1     shift, and go to state 48
+    OPERATOR2     shift, and go to state 49
+    OPERATOR3     shift, and go to state 50
+    UNIOPERATOR0  shift, and go to state 51
+
+    $default  reduce using rule 8 (lparen)
+
+
+state 39
+
+   13 brack: lbrack RBRACK .
+
+    $default  reduce using rule 13 (brack)
+
+
+state 40
+
+   14 brack: lbrack END .
+
+    $default  reduce using rule 14 (brack)
+
+
+state 41
+
+   12 lbrack: lbrack node .  [error, UNIOPERATOR1, LPAREN, LBRACK, RBRACK, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   21 node: node . UNIOPERATOR0
+   45 addsub: node . OPERATOR0 node
+   46 muldiv: node . OPERATOR1 node
+   47 powroot: node . OPERATOR2 node
+   48 equal: node . OPERATOR3 node
+
+    OPERATOR0     shift, and go to state 47
+    OPERATOR1     shift, and go to state 48
+    OPERATOR2     shift, and go to state 49
+    OPERATOR3     shift, and go to state 50
+    UNIOPERATOR0  shift, and go to state 51
+
+    $default  reduce using rule 12 (lbrack)
+
+
+state 42
+
+   18 lbrace: lbrace SEMICOLON .
+
+    $default  reduce using rule 18 (lbrace)
+
+
+state 43
+
+   19 brace: lbrace RBRACE .
+
+    $default  reduce using rule 19 (brace)
+
+
+state 44
+
+   20 brace: lbrace END .
+
+    $default  reduce using rule 20 (brace)
+
+
+state 45
+
+   17 lbrace: lbrace brace .
+
+    $default  reduce using rule 17 (lbrace)
+
+
+state 46
+
+   16 lbrace: lbrace node .  [error, UNIOPERATOR1, SEMICOLON, LPAREN, LBRACK, LBRACE, RBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   21 node: node . UNIOPERATOR0
+   45 addsub: node . OPERATOR0 node
+   46 muldiv: node . OPERATOR1 node
+   47 powroot: node . OPERATOR2 node
+   48 equal: node . OPERATOR3 node
+
+    OPERATOR0     shift, and go to state 47
+    OPERATOR1     shift, and go to state 48
+    OPERATOR2     shift, and go to state 49
+    OPERATOR3     shift, and go to state 50
+    UNIOPERATOR0  shift, and go to state 51
+
+    $default  reduce using rule 16 (lbrace)
+
+
+state 47
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   11 lbrack: . LBRACK
+   12       | . lbrack node
+   13 brack: . lbrack RBRACK
+   14      | . lbrack END
+   21 node: . node UNIOPERATOR0
+   22     | . UNIOPERATOR1 node
+   23     | . UNKNOWN
+   24     | . addsub
+   25     | . muldiv
+   26     | . powroot
+   27     | . equal
+   28     | . type
+   29     | . TAG
+   30     | . CONSTANT
+   31     | . NAME
+   32     | . NAME paren
+   33     | . TYPE brace
+   34     | . paren
+   35     | . brack
+   36     | . error
+   43 type: . TYPE NAME
+   44     | . TYPE NAME paren brace
+   45 addsub: . node OPERATOR0 node
+   45       | node OPERATOR0 . node
+   46 muldiv: . node OPERATOR1 node
+   47 powroot: . node OPERATOR2 node
+   48 equal: . node OPERATOR3 node
+
+    error         shift, and go to state 3
+    UNIOPERATOR1  shift, and go to state 5
+    LPAREN        shift, and go to state 7
+    LBRACK        shift, and go to state 8
+    NAME          shift, and go to state 10
+    TYPE          shift, and go to state 11
+    TAG           shift, and go to state 12
+    UNKNOWN       shift, and go to state 13
+    CONSTANT      shift, and go to state 15
+
+    lparen   go to state 16
+    paren    go to state 17
+    lbrack   go to state 18
+    brack    go to state 19
+    node     go to state 56
+    type     go to state 26
+    addsub   go to state 27
+    muldiv   go to state 28
+    powroot  go to state 29
+    equal    go to state 30
+
+
+state 48
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   11 lbrack: . LBRACK
+   12       | . lbrack node
+   13 brack: . lbrack RBRACK
+   14      | . lbrack END
+   21 node: . node UNIOPERATOR0
+   22     | . UNIOPERATOR1 node
+   23     | . UNKNOWN
+   24     | . addsub
+   25     | . muldiv
+   26     | . powroot
+   27     | . equal
+   28     | . type
+   29     | . TAG
+   30     | . CONSTANT
+   31     | . NAME
+   32     | . NAME paren
+   33     | . TYPE brace
+   34     | . paren
+   35     | . brack
+   36     | . error
+   43 type: . TYPE NAME
+   44     | . TYPE NAME paren brace
+   45 addsub: . node OPERATOR0 node
+   46 muldiv: . node OPERATOR1 node
+   46       | node OPERATOR1 . node
+   47 powroot: . node OPERATOR2 node
+   48 equal: . node OPERATOR3 node
+
+    error         shift, and go to state 3
+    UNIOPERATOR1  shift, and go to state 5
+    LPAREN        shift, and go to state 7
+    LBRACK        shift, and go to state 8
+    NAME          shift, and go to state 10
+    TYPE          shift, and go to state 11
+    TAG           shift, and go to state 12
+    UNKNOWN       shift, and go to state 13
+    CONSTANT      shift, and go to state 15
+
+    lparen   go to state 16
+    paren    go to state 17
+    lbrack   go to state 18
+    brack    go to state 19
+    node     go to state 57
+    type     go to state 26
+    addsub   go to state 27
+    muldiv   go to state 28
+    powroot  go to state 29
+    equal    go to state 30
+
+
+state 49
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   11 lbrack: . LBRACK
+   12       | . lbrack node
+   13 brack: . lbrack RBRACK
+   14      | . lbrack END
+   21 node: . node UNIOPERATOR0
+   22     | . UNIOPERATOR1 node
+   23     | . UNKNOWN
+   24     | . addsub
+   25     | . muldiv
+   26     | . powroot
+   27     | . equal
+   28     | . type
+   29     | . TAG
+   30     | . CONSTANT
+   31     | . NAME
+   32     | . NAME paren
+   33     | . TYPE brace
+   34     | . paren
+   35     | . brack
+   36     | . error
+   43 type: . TYPE NAME
+   44     | . TYPE NAME paren brace
+   45 addsub: . node OPERATOR0 node
+   46 muldiv: . node OPERATOR1 node
+   47 powroot: . node OPERATOR2 node
+   47        | node OPERATOR2 . node
+   48 equal: . node OPERATOR3 node
+
+    error         shift, and go to state 3
+    UNIOPERATOR1  shift, and go to state 5
+    LPAREN        shift, and go to state 7
+    LBRACK        shift, and go to state 8
+    NAME          shift, and go to state 10
+    TYPE          shift, and go to state 11
+    TAG           shift, and go to state 12
+    UNKNOWN       shift, and go to state 13
+    CONSTANT      shift, and go to state 15
+
+    lparen   go to state 16
+    paren    go to state 17
+    lbrack   go to state 18
+    brack    go to state 19
+    node     go to state 58
+    type     go to state 26
+    addsub   go to state 27
+    muldiv   go to state 28
+    powroot  go to state 29
+    equal    go to state 30
+
+
+state 50
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   11 lbrack: . LBRACK
+   12       | . lbrack node
+   13 brack: . lbrack RBRACK
+   14      | . lbrack END
+   21 node: . node UNIOPERATOR0
+   22     | . UNIOPERATOR1 node
+   23     | . UNKNOWN
+   24     | . addsub
+   25     | . muldiv
+   26     | . powroot
+   27     | . equal
+   28     | . type
+   29     | . TAG
+   30     | . CONSTANT
+   31     | . NAME
+   32     | . NAME paren
+   33     | . TYPE brace
+   34     | . paren
+   35     | . brack
+   36     | . error
+   43 type: . TYPE NAME
+   44     | . TYPE NAME paren brace
+   45 addsub: . node OPERATOR0 node
+   46 muldiv: . node OPERATOR1 node
+   47 powroot: . node OPERATOR2 node
+   48 equal: . node OPERATOR3 node
+   48      | node OPERATOR3 . node
+
+    error         shift, and go to state 3
+    UNIOPERATOR1  shift, and go to state 5
+    LPAREN        shift, and go to state 7
+    LBRACK        shift, and go to state 8
+    NAME          shift, and go to state 10
+    TYPE          shift, and go to state 11
+    TAG           shift, and go to state 12
+    UNKNOWN       shift, and go to state 13
+    CONSTANT      shift, and go to state 15
+
+    lparen   go to state 16
+    paren    go to state 17
+    lbrack   go to state 18
+    brack    go to state 19
+    node     go to state 59
+    type     go to state 26
+    addsub   go to state 27
+    muldiv   go to state 28
+    powroot  go to state 29
+    equal    go to state 30
+
+
+state 51
+
+   21 node: node UNIOPERATOR0 .
+
+    $default  reduce using rule 21 (node)
+
+
+state 52
+
+    7 lparen: . LPAREN
+    8       | . lparen node
+    9 paren: . lparen RPAREN
+   10      | . lparen END
+   11 lbrack: . LBRACK
+   12       | . lbrack node
+   13 brack: . lbrack RBRACK
+   14      | . lbrack END
+   15 lbrace: . LBRACE
+   16       | . lbrace node
+   17       | . lbrace brace
+   18       | . lbrace SEMICOLON
+   19 brace: . lbrace RBRACE
+   20      | . lbrace END
+   21 node: . node UNIOPERATOR0
+   22     | . UNIOPERATOR1 node
+   23     | . UNKNOWN
+   24     | . addsub
+   25     | . muldiv
+   26     | . powroot
+   27     | . equal
+   28     | . type
+   29     | . TAG
+   30     | . CONSTANT
+   31     | . NAME
+   32     | . NAME paren
+   33     | . TYPE brace
+   34     | . paren
+   35     | . brack
+   36     | . error
+   39 iffull: ifempty ELSE . node
+   40       | ifempty ELSE . brace
+   43 type: . TYPE NAME
+   44     | . TYPE NAME paren brace
+   45 addsub: . node OPERATOR0 node
+   46 muldiv: . node OPERATOR1 node
+   47 powroot: . node OPERATOR2 node
+   48 equal: . node OPERATOR3 node
+
+    error         shift, and go to state 3
+    UNIOPERATOR1  shift, and go to state 5
+    LPAREN        shift, and go to state 7
+    LBRACK        shift, and go to state 8
+    LBRACE        shift, and go to state 9
+    NAME          shift, and go to state 10
+    TYPE          shift, and go to state 11
+    TAG           shift, and go to state 12
+    UNKNOWN       shift, and go to state 13
+    CONSTANT      shift, and go to state 15
+
+    lparen   go to state 16
+    paren    go to state 17
+    lbrack   go to state 18
+    brack    go to state 19
+    lbrace   go to state 20
+    brace    go to state 60
+    node     go to state 61
+    type     go to state 26
+    addsub   go to state 27
+    muldiv   go to state 28
+    powroot  go to state 29
+    equal    go to state 30
+
+
+state 53
+
+   42 ifempty: IF paren brace .
+
+    $default  reduce using rule 42 (ifempty)
+
+
+state 54
+
+   21 node: node . UNIOPERATOR0
+   41 ifempty: IF paren node .  [$end, error, ELSE, IF, UNIOPERATOR1, SEMICOLON, LPAREN, LBRACK, LBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   45 addsub: node . OPERATOR0 node
+   46 muldiv: node . OPERATOR1 node
+   47 powroot: node . OPERATOR2 node
+   48 equal: node . OPERATOR3 node
+
+    OPERATOR0     shift, and go to state 47
+    OPERATOR1     shift, and go to state 48
+    OPERATOR2     shift, and go to state 49
+    OPERATOR3     shift, and go to state 50
+    UNIOPERATOR0  shift, and go to state 51
+
+    $default  reduce using rule 41 (ifempty)
+
+
+state 55
+
+   15 lbrace: . LBRACE
+   16       | . lbrace node
+   17       | . lbrace brace
+   18       | . lbrace SEMICOLON
+   19 brace: . lbrace RBRACE
+   20      | . lbrace END
+   44 type: TYPE NAME paren . brace
+
+    LBRACE  shift, and go to state 9
+
+    lbrace  go to state 20
+    brace   go to state 62
+
+
+state 56
+
+   21 node: node . UNIOPERATOR0
+   45 addsub: node . OPERATOR0 node
+   45       | node OPERATOR0 node .  [$end, error, ELSE, IF, OPERATOR0, UNIOPERATOR1, SEMICOLON, LPAREN, RPAREN, LBRACK, RBRACK, LBRACE, RBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   46 muldiv: node . OPERATOR1 node
+   47 powroot: node . OPERATOR2 node
+   48 equal: node . OPERATOR3 node
+
+    OPERATOR1     shift, and go to state 48
+    OPERATOR2     shift, and go to state 49
+    OPERATOR3     shift, and go to state 50
+    UNIOPERATOR0  shift, and go to state 51
+
+    $default  reduce using rule 45 (addsub)
+
+    Conflict between rule 45 and token OPERATOR0 resolved as reduce (%left OPERATOR0).
+    Conflict between rule 45 and token OPERATOR1 resolved as shift (OPERATOR0 < OPERATOR1).
+    Conflict between rule 45 and token OPERATOR2 resolved as shift (OPERATOR0 < OPERATOR2).
+    Conflict between rule 45 and token OPERATOR3 resolved as shift (OPERATOR0 < OPERATOR3).
+    Conflict between rule 45 and token UNIOPERATOR0 resolved as shift (OPERATOR0 < UNIOPERATOR0).
+
+
+state 57
+
+   21 node: node . UNIOPERATOR0
+   45 addsub: node . OPERATOR0 node
+   46 muldiv: node . OPERATOR1 node
+   46       | node OPERATOR1 node .  [$end, error, ELSE, IF, OPERATOR0, OPERATOR1, UNIOPERATOR1, SEMICOLON, LPAREN, RPAREN, LBRACK, RBRACK, LBRACE, RBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   47 powroot: node . OPERATOR2 node
+   48 equal: node . OPERATOR3 node
+
+    OPERATOR2     shift, and go to state 49
+    OPERATOR3     shift, and go to state 50
+    UNIOPERATOR0  shift, and go to state 51
+
+    $default  reduce using rule 46 (muldiv)
+
+    Conflict between rule 46 and token OPERATOR0 resolved as reduce (OPERATOR0 < OPERATOR1).
+    Conflict between rule 46 and token OPERATOR1 resolved as reduce (%left OPERATOR1).
+    Conflict between rule 46 and token OPERATOR2 resolved as shift (OPERATOR1 < OPERATOR2).
+    Conflict between rule 46 and token OPERATOR3 resolved as shift (OPERATOR1 < OPERATOR3).
+    Conflict between rule 46 and token UNIOPERATOR0 resolved as shift (OPERATOR1 < UNIOPERATOR0).
+
+
+state 58
+
+   21 node: node . UNIOPERATOR0
+   45 addsub: node . OPERATOR0 node
+   46 muldiv: node . OPERATOR1 node
+   47 powroot: node . OPERATOR2 node
+   47        | node OPERATOR2 node .  [$end, error, ELSE, IF, OPERATOR0, OPERATOR1, OPERATOR2, UNIOPERATOR1, SEMICOLON, LPAREN, RPAREN, LBRACK, RBRACK, LBRACE, RBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   48 equal: node . OPERATOR3 node
+
+    OPERATOR3     shift, and go to state 50
+    UNIOPERATOR0  shift, and go to state 51
+
+    $default  reduce using rule 47 (powroot)
+
+    Conflict between rule 47 and token OPERATOR0 resolved as reduce (OPERATOR0 < OPERATOR2).
+    Conflict between rule 47 and token OPERATOR1 resolved as reduce (OPERATOR1 < OPERATOR2).
+    Conflict between rule 47 and token OPERATOR2 resolved as reduce (%left OPERATOR2).
+    Conflict between rule 47 and token OPERATOR3 resolved as shift (OPERATOR2 < OPERATOR3).
+    Conflict between rule 47 and token UNIOPERATOR0 resolved as shift (OPERATOR2 < UNIOPERATOR0).
+
+
+state 59
+
+   21 node: node . UNIOPERATOR0
+   45 addsub: node . OPERATOR0 node
+   46 muldiv: node . OPERATOR1 node
+   47 powroot: node . OPERATOR2 node
+   48 equal: node . OPERATOR3 node
+   48      | node OPERATOR3 node .  [$end, error, ELSE, IF, OPERATOR0, OPERATOR1, OPERATOR2, OPERATOR3, UNIOPERATOR1, SEMICOLON, LPAREN, RPAREN, LBRACK, RBRACK, LBRACE, RBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+
+    UNIOPERATOR0  shift, and go to state 51
+
+    $default  reduce using rule 48 (equal)
+
+    Conflict between rule 48 and token OPERATOR0 resolved as reduce (OPERATOR0 < OPERATOR3).
+    Conflict between rule 48 and token OPERATOR1 resolved as reduce (OPERATOR1 < OPERATOR3).
+    Conflict between rule 48 and token OPERATOR2 resolved as reduce (OPERATOR2 < OPERATOR3).
+    Conflict between rule 48 and token OPERATOR3 resolved as reduce (%left OPERATOR3).
+    Conflict between rule 48 and token UNIOPERATOR0 resolved as shift (OPERATOR3 < UNIOPERATOR0).
+
+
+state 60
+
+   40 iffull: ifempty ELSE brace .
+
+    $default  reduce using rule 40 (iffull)
+
+
+state 61
+
+   21 node: node . UNIOPERATOR0
+   39 iffull: ifempty ELSE node .  [$end, error, IF, UNIOPERATOR1, SEMICOLON, LPAREN, LBRACK, LBRACE, NAME, TYPE, TAG, UNKNOWN, END, CONSTANT]
+   45 addsub: node . OPERATOR0 node
+   46 muldiv: node . OPERATOR1 node
+   47 powroot: node . OPERATOR2 node
+   48 equal: node . OPERATOR3 node
+
+    OPERATOR0     shift, and go to state 47
+    OPERATOR1     shift, and go to state 48
+    OPERATOR2     shift, and go to state 49
+    OPERATOR3     shift, and go to state 50
+    UNIOPERATOR0  shift, and go to state 51
+
+    $default  reduce using rule 39 (iffull)
+
+
+state 62
+
+   44 type: TYPE NAME paren brace .
+
+    $default  reduce using rule 44 (type)

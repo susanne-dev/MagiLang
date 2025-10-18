@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/susanne/source/repos/C++/Languages/MagiLang/build",
+  "command": "/usr/bin/g++ -g -o CMakeFiles/oclc.dir/main.cpp.o -c /home/susanne/source/repos/C++/Languages/MagiLang/main.cpp",
+  "file": "/home/susanne/source/repos/C++/Languages/MagiLang/main.cpp",
+  "output": "CMakeFiles/oclc.dir/main.cpp.o"
+}
+]

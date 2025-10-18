@@ -1,0 +1,27 @@
+Node types:
+	astNode			| Base type
+					| Base type
+
+	astNodeObj		| Has adresses for every important tag within { GET SET }
+					| Object code
+
+	astNodeInt		| Has one long long
+					| Int constant
+
+	astNodeDec		| Has one long double
+					| Decimal constant
+
+	astNodeStr		| No difference, just feels nice :3
+					| String constant
+
+	astNodeBool		| Has one bool
+					| Bool constant
+
+Implement "dead nodes". Marker for broken user code so that interpreter doesn't go down that branch and crash.
+
+Should the parser be more relaxed about assigning subnodes? A broken tree is better than none at all. Error handling could be done in interpreter.
+
+Implement either soft failure or soft interpreter for mouse hover and shiii.
+I thinkg soft interpreter called only on mouse hover.
+
+Output to language client: All names for autocompletion. ErrorList.

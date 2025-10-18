@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "new": "cpp",
+        "memory.hpp": "c",
+        "errorclass.hpp": "c",
+        "fcntl.h": "c"
+    },
+    "C_Cpp.default.compilerPath": "/usr/bin/g++"
+}
