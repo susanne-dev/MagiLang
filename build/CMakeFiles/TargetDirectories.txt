@@ -1,3 +1,0 @@
-/home/susanne/source/repos/C++/Languages/MagiLang/build/CMakeFiles/oclc.dir
-/home/susanne/source/repos/C++/Languages/MagiLang/build/CMakeFiles/edit_cache.dir
-/home/susanne/source/repos/C++/Languages/MagiLang/build/CMakeFiles/rebuild_cache.dir
