@@ -2,9 +2,9 @@
 #include <iostream>
 #include "./HeaderFiles/main.hpp"
 
-using namespace ObjectCalc;
+using namespace MagiLang;
 
-namespace ObjectCalc
+namespace MagiLang
 {
     bool isRunning = false;
 }

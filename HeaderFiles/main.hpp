@@ -30,20 +30,21 @@ void run(int argc, char* argv[])
 {
     std::cout << "/////////RUNNING/////////" << std::endl;
 
-    if (argc < 2)
+    if (argc < 3)
     {
         std::cout << "\nUsage:\n\tMagiLang --run \"file path\"" << std::endl;
         return;
     }
 
-    std::vector<ObjectCalc::errorClass> errorList;
+    std::vector<MagiLang::errorClass> errorList;
 
     astNode* root = parser_main(argc, argv, &errorList);
 
     if (cmdList["devbug"]) printAST(*root, "", cmdList);
 
-    Interpreter::preRun(root, errorList); //Link memories, evaluate node health, etc
-
+    Interpreter::preRun(root, errorList); //Link memories (soon to be removed), evaluate node health, etc
+    delete root;
+    return;
     if (cmdList["devbug"]) //get left-most leaf
     {
         std::cout << "after///" << std::endl;

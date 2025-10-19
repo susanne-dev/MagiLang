@@ -95,9 +95,9 @@ union YYSTYPE
 {
 #line 49 "parser.y"
 
-	ObjectCalc::astNode* node;
-	ObjectCalc::astNodeMem* cnode;
-	ObjectCalc::token* t;
+	MagiLang::astNode* node;
+	MagiLang::astNodeMem* cnode;
+	MagiLang::token* t;
 
 #line 103 "./GeneratedFiles/parser.tab.h"
 

@@ -4,7 +4,7 @@
 #include <string>
 #include <sstream>
 
-namespace ObjectCalc
+namespace MagiLang
 {
 	void replaceAll(std::string& in, std::string remove, std::string replace)
 	{

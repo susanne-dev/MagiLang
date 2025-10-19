@@ -2,18 +2,18 @@
 #include "node.hpp"
 #include "errorClass.hpp"
 
-namespace ObjectCalc
+namespace MagiLang
 {
 	struct token;
 	struct astNode;
 
 	template <typename T1, typename T2>
-	void binary(std::string oprtr, token* v1, token* v2, token* outpt, std::vector<ObjectCalc::errorClass>* errorList)
+	void binary(std::string oprtr, token* v1, token* v2, token* outpt, std::vector<MagiLang::errorClass>* errorList)
 	{
 
 	}
 
-	void arithmetic(std::string oprtr, token* v1, token* v2, token* outpt, std::vector<ObjectCalc::errorClass>* errorList)
+	void arithmetic(std::string oprtr, token* v1, token* v2, token* outpt, std::vector<MagiLang::errorClass>* errorList)
 	{
 		/*astNode temp = astNode(v1);
 		//printAST(temp, "", "Run");
@@ -22,12 +22,12 @@ namespace ObjectCalc
 		{
 			switch (v1->valuetype)
 			{
-				case ObjectCalc::token::NUMBER:
+				case MagiLang::token::NUMBER:
 				{
-					v1->valuetype = ObjectCalc::token::NUMBER;
+					v1->valuetype = MagiLang::token::NUMBER;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::NUMBER:
+					case MagiLang::token::NUMBER:
 					{
 						std::cout << "AA" << std::endl;
 						outpt->value = new long long;
@@ -35,7 +35,7 @@ namespace ObjectCalc
 						std::cout << "BB" << std::endl;
 					}
 					break;
-					case ObjectCalc::token::DECIMAL:
+					case MagiLang::token::DECIMAL:
 					{
 						*((long long*)outpt->value) = *((long long*)v1->value) + *((long double*)v2->value);
 					}
@@ -47,17 +47,17 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::DECIMAL:
+				case MagiLang::token::DECIMAL:
 				{
-					v1->valuetype = ObjectCalc::token::DECIMAL;
+					v1->valuetype = MagiLang::token::DECIMAL;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::NUMBER:
+					case MagiLang::token::NUMBER:
 					{
 						*((long double*)outpt->value) = *((long long*)v1->value) + *((long long*)v2->value);
 					}
 					break;
-					case ObjectCalc::token::DECIMAL:
+					case MagiLang::token::DECIMAL:
 					{
 						*((long double*)outpt->value) = *((long long*)v1->value) + *((long double*)v2->value);
 					}
@@ -68,12 +68,12 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::STRING:
+				case MagiLang::token::STRING:
 				{
-					v1->valuetype = ObjectCalc::token::STRING;
+					v1->valuetype = MagiLang::token::STRING;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::STRING:
+					case MagiLang::token::STRING:
 					{
 						*((std::string*)outpt->value) = *((std::string*)v1->value) + *((std::string*)v2->value);
 					}
@@ -83,9 +83,9 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::BOOL:
+				case MagiLang::token::BOOL:
 				{
-					v1->valuetype = ObjectCalc::token::BOOL;
+					v1->valuetype = MagiLang::token::BOOL;
 					oclcError("Incompatible types", v1->location);
 				}
 				break;
@@ -98,17 +98,17 @@ namespace ObjectCalc
 		{
 			switch (v1->valuetype)
 			{
-				case ObjectCalc::token::NUMBER:
+				case MagiLang::token::NUMBER:
 				{
-					v1->valuetype = ObjectCalc::token::NUMBER;
+					v1->valuetype = MagiLang::token::NUMBER;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::NUMBER:
+					case MagiLang::token::NUMBER:
 					{
 						*((long long*)outpt->value) = *((long long*)v1->value) - *((long long*)v2->value);
 					}
 					break;
-					case ObjectCalc::token::DECIMAL:
+					case MagiLang::token::DECIMAL:
 					{
 						*((long long*)outpt->value) = *((long long*)v1->value) - *((long double*)v2->value);
 					}
@@ -120,17 +120,17 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::DECIMAL:
+				case MagiLang::token::DECIMAL:
 				{
-					v1->valuetype = ObjectCalc::token::DECIMAL;
+					v1->valuetype = MagiLang::token::DECIMAL;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::NUMBER:
+					case MagiLang::token::NUMBER:
 					{
 						*((long double*)outpt->value) = *((long long*)v1->value) - *((long long*)v2->value);
 					}
 					break;
-					case ObjectCalc::token::DECIMAL:
+					case MagiLang::token::DECIMAL:
 					{
 						*((long double*)outpt->value) = *((long long*)v1->value) - *((long double*)v2->value);
 					}
@@ -141,15 +141,15 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::STRING:
+				case MagiLang::token::STRING:
 				{
-					v1->valuetype = ObjectCalc::token::STRING;
+					v1->valuetype = MagiLang::token::STRING;
 					oclcError("Incompatible types", v1->location);
 				}
 				break;
-				case ObjectCalc::token::BOOL:
+				case MagiLang::token::BOOL:
 				{
-					v1->valuetype = ObjectCalc::token::BOOL;
+					v1->valuetype = MagiLang::token::BOOL;
 					oclcError("Incompatible types", v1->location);
 				}
 				break;
@@ -162,17 +162,17 @@ namespace ObjectCalc
 		{
 			switch (v1->valuetype)
 			{
-				case ObjectCalc::token::NUMBER:
+				case MagiLang::token::NUMBER:
 				{
-					v1->valuetype = ObjectCalc::token::NUMBER;
+					v1->valuetype = MagiLang::token::NUMBER;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::NUMBER:
+					case MagiLang::token::NUMBER:
 					{
 						*((long long*)outpt->value) = *((long long*)v1->value) * *((long long*)v2->value);
 					}
 					break;
-					case ObjectCalc::token::DECIMAL:
+					case MagiLang::token::DECIMAL:
 					{
 						*((long long*)outpt->value) = std::round(*((long long*)v1->value) * *((long double*)v2->value));
 					}
@@ -184,17 +184,17 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::DECIMAL:
+				case MagiLang::token::DECIMAL:
 				{
-					v1->valuetype = ObjectCalc::token::DECIMAL;
+					v1->valuetype = MagiLang::token::DECIMAL;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::NUMBER:
+					case MagiLang::token::NUMBER:
 					{
 						*((long double*)outpt->value) = *((long long*)v1->value) + *((long long*)v2->value);
 					}
 					break;
-					case ObjectCalc::token::DECIMAL:
+					case MagiLang::token::DECIMAL:
 					{
 						*((long double*)outpt->value) = *((long long*)v1->value) + *((long double*)v2->value);
 					}
@@ -205,12 +205,12 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::STRING:
+				case MagiLang::token::STRING:
 				{
-					v1->valuetype = ObjectCalc::token::STRING;
+					v1->valuetype = MagiLang::token::STRING;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::STRING:
+					case MagiLang::token::STRING:
 					{
 						*((std::string*)outpt->value) = *((std::string*)v1->value) + *((std::string*)v2->value);
 					}
@@ -220,9 +220,9 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::BOOL:
+				case MagiLang::token::BOOL:
 				{
-					v1->valuetype = ObjectCalc::token::BOOL;
+					v1->valuetype = MagiLang::token::BOOL;
 					oclcError("Incompatible types", v1->location);
 				}
 				break;
@@ -235,17 +235,17 @@ namespace ObjectCalc
 		{
 			switch (v1->valuetype)
 			{
-				case ObjectCalc::token::NUMBER:
+				case MagiLang::token::NUMBER:
 				{
-					v1->valuetype = ObjectCalc::token::NUMBER;
+					v1->valuetype = MagiLang::token::NUMBER;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::NUMBER:
+					case MagiLang::token::NUMBER:
 					{
 						*((long long*)outpt->value) = std::round(*((long long*)v1->value) / *((long long*)v2->value));
 					}
 					break;
-					case ObjectCalc::token::DECIMAL:
+					case MagiLang::token::DECIMAL:
 					{
 						*((long long*)outpt->value) = std::round(*((long long*)v1->value) / *((long double*)v2->value));
 					}
@@ -257,17 +257,17 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::DECIMAL:
+				case MagiLang::token::DECIMAL:
 				{
-					v1->valuetype = ObjectCalc::token::DECIMAL;
+					v1->valuetype = MagiLang::token::DECIMAL;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::NUMBER:
+					case MagiLang::token::NUMBER:
 					{
 						*((long double*)outpt->value) = *((long long*)v1->value) + *((long long*)v2->value);
 					}
 					break;
-					case ObjectCalc::token::DECIMAL:
+					case MagiLang::token::DECIMAL:
 					{
 						*((long double*)outpt->value) = *((long long*)v1->value) + *((long double*)v2->value);
 					}
@@ -278,12 +278,12 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::STRING:
+				case MagiLang::token::STRING:
 				{
-					v1->valuetype = ObjectCalc::token::STRING;
+					v1->valuetype = MagiLang::token::STRING;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::STRING:
+					case MagiLang::token::STRING:
 					{
 						*((std::string*)outpt->value) = *((std::string*)v1->value) + *((std::string*)v2->value);
 					}
@@ -293,9 +293,9 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::BOOL:
+				case MagiLang::token::BOOL:
 				{
-					v1->valuetype = ObjectCalc::token::BOOL;
+					v1->valuetype = MagiLang::token::BOOL;
 					oclcError("Incompatible types", v1->location);
 				}
 				break;
@@ -308,17 +308,17 @@ namespace ObjectCalc
 		{
 			switch (v1->valuetype)
 			{
-				case ObjectCalc::token::NUMBER:
+				case MagiLang::token::NUMBER:
 				{
-					v1->valuetype = ObjectCalc::token::NUMBER;
+					v1->valuetype = MagiLang::token::NUMBER;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::NUMBER:
+					case MagiLang::token::NUMBER:
 					{
 						*((long long*)outpt->value) = *((long long*)v1->value) + *((long long*)v2->value);
 					}
 					break;
-					case ObjectCalc::token::DECIMAL:
+					case MagiLang::token::DECIMAL:
 					{
 						*((long long*)outpt->value) = std::round(*((long long*)v1->value) + *((long double*)v2->value));
 					}
@@ -330,17 +330,17 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::DECIMAL:
+				case MagiLang::token::DECIMAL:
 				{
-					v1->valuetype = ObjectCalc::token::DECIMAL;
+					v1->valuetype = MagiLang::token::DECIMAL;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::NUMBER:
+					case MagiLang::token::NUMBER:
 					{
 						*((long double*)outpt->value) = *((long long*)v1->value) + *((long long*)v2->value);
 					}
 					break;
-					case ObjectCalc::token::DECIMAL:
+					case MagiLang::token::DECIMAL:
 					{
 						*((long double*)outpt->value) = *((long long*)v1->value) + *((long double*)v2->value);
 					}
@@ -351,12 +351,12 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::STRING:
+				case MagiLang::token::STRING:
 				{
-					v1->valuetype = ObjectCalc::token::STRING;
+					v1->valuetype = MagiLang::token::STRING;
 					switch (v2->valuetype)
 					{
-					case ObjectCalc::token::STRING:
+					case MagiLang::token::STRING:
 					{
 						*((std::string*)outpt->value) = *((std::string*)v1->value) + *((std::string*)v2->value);
 					}
@@ -366,9 +366,9 @@ namespace ObjectCalc
 					}
 				}
 				break;
-				case ObjectCalc::token::BOOL:
+				case MagiLang::token::BOOL:
 				{
-					v1->valuetype = ObjectCalc::token::BOOL;
+					v1->valuetype = MagiLang::token::BOOL;
 					oclcError("Incompatible types", v1->location);
 				}
 				break;

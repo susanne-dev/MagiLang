@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-namespace ObjectCalc
+namespace MagiLang
 {
 	extern bool isRunning;
 

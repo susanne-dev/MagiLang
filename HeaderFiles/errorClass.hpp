@@ -3,7 +3,7 @@
 #include <iostream>
 #include "token.hpp"
 
-namespace ObjectCalc
+namespace MagiLang
 {
 	struct errorClass
 	{

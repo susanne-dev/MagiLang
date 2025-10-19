@@ -11,7 +11,7 @@
 #include "errorClass.hpp"
 #include "oclcError.hpp"
 
-namespace ObjectCalc
+namespace MagiLang
 {
 	struct astNode
 	{

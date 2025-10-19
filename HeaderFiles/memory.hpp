@@ -3,12 +3,12 @@
 #include <map>
 #include <vector>
 
-namespace ObjectCalc
+namespace MagiLang
 {
 	struct astNode;
 }
 
-using namespace ObjectCalc;
+using namespace MagiLang;
 
 namespace Memory
 {

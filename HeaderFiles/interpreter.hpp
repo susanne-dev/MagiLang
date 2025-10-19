@@ -28,7 +28,7 @@
 */
 
 using namespace Memory;
-using namespace ObjectCalc;
+using namespace MagiLang;
 
 namespace Interpreter
 {
@@ -37,25 +37,25 @@ namespace Interpreter
 	{
 		switch (node->type)
 		{
-		case ObjectCalc::token::NUMBER:
+		case MagiLang::token::NUMBER:
 			break;
-		case ObjectCalc::token::DECIMAL:
+		case MagiLang::token::DECIMAL:
 			break;
-		case ObjectCalc::token::STRING:
+		case MagiLang::token::STRING:
 			break;
-		case ObjectCalc::token::BOOL:
+		case MagiLang::token::BOOL:
 			break;
-		case ObjectCalc::token::LIST:
+		case MagiLang::token::LIST:
 			break;
-		case ObjectCalc::token::BINARY_OPERATOR:
+		case MagiLang::token::BINARY_OPERATOR:
 			break;
-		case ObjectCalc::token::UNARY_OPERATOR:
+		case MagiLang::token::UNARY_OPERATOR:
 			break;
-		case ObjectCalc::token::OBJECTCALL:
+		case MagiLang::token::OBJECTCALL:
 			break;
-		case ObjectCalc::token::VARIABLE:
+		case MagiLang::token::VARIABLE:
 			break;
-		case ObjectCalc::token::PAREN:
+		case MagiLang::token::PAREN:
 			break;
 		default:
 			break;
@@ -70,55 +70,55 @@ namespace Interpreter
 
 			switch (node->type)
 			{
-			case ObjectCalc::token::NUMBER:
+			case MagiLang::token::NUMBER:
 				break;
-			case ObjectCalc::token::DECIMAL:
+			case MagiLang::token::DECIMAL:
 				break;
-			case ObjectCalc::token::STRING:
+			case MagiLang::token::STRING:
 				break;
-			case ObjectCalc::token::BOOL:
+			case MagiLang::token::BOOL:
 				break;
-			case ObjectCalc::token::LIST:
+			case MagiLang::token::LIST:
 				break;
-			case ObjectCalc::token::BINARY_OPERATOR:
+			case MagiLang::token::BINARY_OPERATOR:
 				break;
-			case ObjectCalc::token::UNARY_OPERATOR:
+			case MagiLang::token::UNARY_OPERATOR:
 				break;
-			case ObjectCalc::token::TYPE:
+			case MagiLang::token::TYPE:
 				break;
-			case ObjectCalc::token::IF:
+			case MagiLang::token::IF:
 				break;
-			case ObjectCalc::token::ELSE:
+			case MagiLang::token::ELSE:
 				break;
-			case ObjectCalc::token::OBJECTCALL:
+			case MagiLang::token::OBJECTCALL:
 				break;
-			case ObjectCalc::token::VARIABLE:
+			case MagiLang::token::VARIABLE:
 				break;
-			case ObjectCalc::token::RPAREN:
+			case MagiLang::token::RPAREN:
 				errorList.push_back(errorClass("", node->location));
 				break;
-			case ObjectCalc::token::PAREN:
+			case MagiLang::token::PAREN:
 				break;
-			case ObjectCalc::token::RBRACE:
+			case MagiLang::token::RBRACE:
 				errorList.push_back(errorClass("", node->location));
 				break;
-			case ObjectCalc::token::BRACE:
+			case MagiLang::token::BRACE:
 				((astNodeMem*)node)->memory->MEMparent = getMEM(root);
 				break;
-			case ObjectCalc::token::RBRACK:
+			case MagiLang::token::RBRACK:
 				errorList.push_back(errorClass("", node->location));
 				break;
-			case ObjectCalc::token::BRACK:
+			case MagiLang::token::BRACK:
 				break;
-			case ObjectCalc::token::COMMA:
+			case MagiLang::token::COMMA:
 				break;
-			case ObjectCalc::token::DOT:
+			case MagiLang::token::DOT:
 				break;
-			case ObjectCalc::token::SEMICOLON:
+			case MagiLang::token::SEMICOLON:
 				break;
-			case ObjectCalc::token::GOTO:
+			case MagiLang::token::GOTO:
 				break;
-			case ObjectCalc::token::UNKNOWN:
+			case MagiLang::token::UNKNOWN:
 				errorList.push_back(errorClass("", node->location));
 				break;
 			default:
@@ -145,56 +145,56 @@ namespace Interpreter
 
 			switch (node->type)
 			{
-			case ObjectCalc::token::NUMBER:
+			case MagiLang::token::NUMBER:
 				std::cout << ((astNodeInt*)node)->value << std::endl;
 				break;
-			case ObjectCalc::token::DECIMAL:
+			case MagiLang::token::DECIMAL:
 				std::cout << ((astNodeDec*)node)->value << std::endl;
 				break;
-			case ObjectCalc::token::STRING:
+			case MagiLang::token::STRING:
 				std::cout << ((astNodeStr*)node)->value << std::endl;
 				break;
-			case ObjectCalc::token::BOOL:
+			case MagiLang::token::BOOL:
 				std::cout << ((astNodeBool*)node)->value << std::endl;
 				break;
-			case ObjectCalc::token::LIST:
+			case MagiLang::token::LIST:
 				break;
-			case ObjectCalc::token::BINARY_OPERATOR:
+			case MagiLang::token::BINARY_OPERATOR:
 				interpret(node, errorList);
 				break;
-			case ObjectCalc::token::UNARY_OPERATOR:
+			case MagiLang::token::UNARY_OPERATOR:
 				break;
-			case ObjectCalc::token::TYPE:
+			case MagiLang::token::TYPE:
 				break;
-			case ObjectCalc::token::IF:
+			case MagiLang::token::IF:
 				break;
-			case ObjectCalc::token::ELSE:
+			case MagiLang::token::ELSE:
 				break;
-			case ObjectCalc::token::OBJECTCALL:
+			case MagiLang::token::OBJECTCALL:
 				break;
-			case ObjectCalc::token::VARIABLE:
+			case MagiLang::token::VARIABLE:
 				break;
-			case ObjectCalc::token::RPAREN:
+			case MagiLang::token::RPAREN:
 				break;
-			case ObjectCalc::token::PAREN:
+			case MagiLang::token::PAREN:
 				break;
-			case ObjectCalc::token::RBRACE:
+			case MagiLang::token::RBRACE:
 				break;
-			case ObjectCalc::token::BRACE:
+			case MagiLang::token::BRACE:
 				break;
-			case ObjectCalc::token::RBRACK:
+			case MagiLang::token::RBRACK:
 				break;
-			case ObjectCalc::token::BRACK:
+			case MagiLang::token::BRACK:
 				break;
-			case ObjectCalc::token::COMMA:
+			case MagiLang::token::COMMA:
 				break;
-			case ObjectCalc::token::DOT:
+			case MagiLang::token::DOT:
 				break;
-			case ObjectCalc::token::SEMICOLON:
+			case MagiLang::token::SEMICOLON:
 				break;
-			case ObjectCalc::token::GOTO:
+			case MagiLang::token::GOTO:
 				break;
-			case ObjectCalc::token::UNKNOWN:
+			case MagiLang::token::UNKNOWN:
 				break;
 				break;
 			default:

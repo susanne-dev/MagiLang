@@ -80,7 +80,7 @@
 	extern FILE* yyin;
 	extern char* yytext;
 
-	using namespace ObjectCalc;
+	using namespace MagiLang;
 
     int yylex();
 	void yyerror(const char* msg) {
@@ -88,7 +88,7 @@
    }
 
 	astNodeMem* root;
-	std::vector<ObjectCalc::errorClass>* errorList;
+	std::vector<MagiLang::errorClass>* errorList;
 
 	#define YYERROR_VERBOSE 1
 
@@ -1819,7 +1819,7 @@ yyreturnlab:
 #line 239 "parser.y"
 
 
-astNodeMem* parser_main(int argc, char *argv[], std::vector<ObjectCalc::errorClass>* errorListIn)
+astNodeMem* parser_main(int argc, char *argv[], std::vector<MagiLang::errorClass>* errorListIn)
 {
 	/*
 	stmnts:	stmnt { root->append(*$1); printf("????")}
