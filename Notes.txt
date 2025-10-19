@@ -1,27 +1,59 @@
-Node types:
-	astNode			| Base type
-					| Base type
+Allowed data types:
+	constants and variables of:
+		int 8 | 16 | 32 | 64
+		uint 8 | 16 | 32 | 64
+		float 16 | 32 | 64
+		bool
 
-	astNodeObj		| Has adresses for every important tag within { GET SET }
-					| Object code
+	string constants
+	built in functions
+	array constants
+	either list variables or array variables # but not both
 
-	astNodeInt		| Has one long long
-					| Int constant
+Disallowed data types:
+	string variables
 
-	astNodeDec		| Has one long double
-					| Decimal constant
+Built in functions:
+	Utility:
+		log()
+		error() # "Complex node output had not been generated. Did you connect the timeline properly?"
+		time()
+		frame() # ?
 
-	astNodeStr		| No difference, just feels nice :3
-					| String constant
+	Math:
+		abs()
+		min() | max() | clamp()
+		vector math
+		rounding functions
+		sign() #what does that do?
 
-	astNodeBool		| Has one bool
-					| Bool constant
+	List:
+		Len()
+		etc
 
-Implement "dead nodes". Marker for broken user code so that interpreter doesn't go down that branch and crash.
+Keywords:
+	See "constants and variables of:"
+	NOT var # as in no abstract vars. keyword var will not exist
+	input | output # input var VAR_NAME "Node pin name" # output VAR_NAME "Node pin name" output is final and called when the value is to be exported. output is not used on var init
 
-Should the parser be more relaxed about assigning subnodes? A broken tree is better than none at all. Error handling could be done in interpreter.
+Input output are assigned using a modifier on var declaration
 
-Implement either soft failure or soft interpreter for mouse hover and shiii.
-I thinkg soft interpreter called only on mouse hover.
+Nodes need to declare their caller. Either call when input arrives or on every frame
 
-Output to language client: All names for autocompletion. ErrorList.
+Nodes are marked as simple or complex. Any connected pair of simple nodes will me merged into a simple node. 
+This repeates until entire chain is combined
+
+Potentially all nodes will be combined to one script and separated by being top level branches acting like functions.
+There would have to be a way to call the first function/node/branch
+
+Nodes are basically functions solving the recursion problem.
+
+Every node has an allowed recursion amount set inside node settings in graph. This is a hidden input. Should this be an exposed input instead?
+
+Memory allows scope and relies on heap
+
+Copy unreals timeline I/O
+
+Variables will not be allowed to share name with keyword
+
+Root level dimensions variable
