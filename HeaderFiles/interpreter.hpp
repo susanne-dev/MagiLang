@@ -1,6 +1,6 @@
 ﻿#include "node.hpp"
 #include "errorClass.hpp"
-#include "oclcError.hpp"
+#include "mglError.hpp"
 
 /*
 		* Check that each node is of appropriate type															N

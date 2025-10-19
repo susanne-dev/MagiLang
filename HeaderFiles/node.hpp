@@ -9,7 +9,7 @@
 #include "memory.hpp"
 #include "token.hpp"
 #include "errorClass.hpp"
-#include "oclcError.hpp"
+#include "mglError.hpp"
 
 namespace MagiLang
 {

@@ -41,7 +41,7 @@ namespace MagiLang
 					}
 					break;
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 
 					}
@@ -63,7 +63,7 @@ namespace MagiLang
 					}
 					break;
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 					}
 				}
@@ -78,7 +78,7 @@ namespace MagiLang
 						*((std::string*)outpt->value) = *((std::string*)v1->value) + *((std::string*)v2->value);
 					}
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 					}
 				}
@@ -86,7 +86,7 @@ namespace MagiLang
 				case MagiLang::token::BOOL:
 				{
 					v1->valuetype = MagiLang::token::BOOL;
-					oclcError("Incompatible types", v1->location);
+					mglError("Incompatible types", v1->location);
 				}
 				break;
 				default:
@@ -114,7 +114,7 @@ namespace MagiLang
 					}
 					break;
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 
 					}
@@ -136,7 +136,7 @@ namespace MagiLang
 					}
 					break;
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 					}
 				}
@@ -144,13 +144,13 @@ namespace MagiLang
 				case MagiLang::token::STRING:
 				{
 					v1->valuetype = MagiLang::token::STRING;
-					oclcError("Incompatible types", v1->location);
+					mglError("Incompatible types", v1->location);
 				}
 				break;
 				case MagiLang::token::BOOL:
 				{
 					v1->valuetype = MagiLang::token::BOOL;
-					oclcError("Incompatible types", v1->location);
+					mglError("Incompatible types", v1->location);
 				}
 				break;
 				default:
@@ -178,7 +178,7 @@ namespace MagiLang
 					}
 					break;
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 
 					}
@@ -200,7 +200,7 @@ namespace MagiLang
 					}
 					break;
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 					}
 				}
@@ -215,7 +215,7 @@ namespace MagiLang
 						*((std::string*)outpt->value) = *((std::string*)v1->value) + *((std::string*)v2->value);
 					}
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 					}
 				}
@@ -223,7 +223,7 @@ namespace MagiLang
 				case MagiLang::token::BOOL:
 				{
 					v1->valuetype = MagiLang::token::BOOL;
-					oclcError("Incompatible types", v1->location);
+					mglError("Incompatible types", v1->location);
 				}
 				break;
 				default:
@@ -251,7 +251,7 @@ namespace MagiLang
 					}
 					break;
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 
 					}
@@ -273,7 +273,7 @@ namespace MagiLang
 					}
 					break;
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 					}
 				}
@@ -288,7 +288,7 @@ namespace MagiLang
 						*((std::string*)outpt->value) = *((std::string*)v1->value) + *((std::string*)v2->value);
 					}
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 					}
 				}
@@ -296,7 +296,7 @@ namespace MagiLang
 				case MagiLang::token::BOOL:
 				{
 					v1->valuetype = MagiLang::token::BOOL;
-					oclcError("Incompatible types", v1->location);
+					mglError("Incompatible types", v1->location);
 				}
 				break;
 				default:
@@ -324,7 +324,7 @@ namespace MagiLang
 					}
 					break;
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 
 					}
@@ -346,7 +346,7 @@ namespace MagiLang
 					}
 					break;
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 					}
 				}
@@ -361,7 +361,7 @@ namespace MagiLang
 						*((std::string*)outpt->value) = *((std::string*)v1->value) + *((std::string*)v2->value);
 					}
 					default:
-						oclcError("Incompatible types", v1->location);
+						mglError("Incompatible types", v1->location);
 						break;
 					}
 				}
@@ -369,7 +369,7 @@ namespace MagiLang
 				case MagiLang::token::BOOL:
 				{
 					v1->valuetype = MagiLang::token::BOOL;
-					oclcError("Incompatible types", v1->location);
+					mglError("Incompatible types", v1->location);
 				}
 				break;
 				default:

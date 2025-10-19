@@ -250,7 +250,7 @@ astNodeMem* parser_main(int argc, char *argv[], std::vector<MagiLang::errorClass
 	errorList = errorListIn;
 
 	std::string fileName = argv[argc - 1];
-	std::string fileEnding = ".oclc";
+	std::string fileEnding = ".mgl";
 
 	if (fileName.length() > fileEnding.length())
 	{
