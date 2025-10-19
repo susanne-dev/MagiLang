@@ -4,16 +4,16 @@
 
 namespace MagiLang
 {
-	struct token;
-	struct astNode;
+	struct Token;
+	struct AstNode;
 
 	template <typename T1, typename T2>
-	void binary(std::string oprtr, token* v1, token* v2, token* outpt, std::vector<MagiLang::errorClass>* errorList)
+	void binary(std::string oprtr, Token* v1, Token* v2, Token* outpt, std::vector<MagiLang::errorClass>* errorList)
 	{
 
 	}
 
-	void arithmetic(std::string oprtr, token* v1, token* v2, token* outpt, std::vector<MagiLang::errorClass>* errorList)
+	void arithmetic(std::string oprtr, Token* v1, Token* v2, Token* outpt, std::vector<MagiLang::errorClass>* errorList)
 	{
 		/*astNode temp = astNode(v1);
 		//printAST(temp, "", "Run");

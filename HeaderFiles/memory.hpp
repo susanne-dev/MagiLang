@@ -5,13 +5,52 @@
 
 namespace MagiLang
 {
-	struct astNode;
+	struct AstNode;
 }
 
 using namespace MagiLang;
 
 namespace Memory
 {
+	struct StackFrame
+	{
+		void* location;
+		char* pointer; //Points to end of last element
+		uint16_t size;
+
+		StackFrame()
+		{
+			location = nullptr;
+			pointer = nullptr;
+			size = 0;
+		}
+
+		StackFrame(uint16_t bytes) // StackFrame is not responsible for knowing the amount of uint16_t's needed.
+		{
+			location = malloc(bytes);
+			pointer = (char*)location;
+			size = bytes;
+		}
+
+		void* push(uint16_t bytes)
+		{
+			if (pointer + bytes > location + size)
+            	return nullptr;
+			
+			pointer += bytes;
+			
+			return pointer - bytes;
+		}
+
+		// No pop(), hard to implement and I don't even need it
+
+		~StackFrame()
+		{
+			if (location != nullptr)
+				free(location);
+		}
+	};
+
 	struct Register
 	{
 		long long NUM;
@@ -27,16 +66,12 @@ namespace Memory
 		bool success; //Did the sub node operation succeed? vital for knowing if + as subnde of = can do math.
 	};
 
-	struct memNode
+	//TODO: remove
+	/*struct memNode
 	{
 		memNode* MEMparent = nullptr;
 		astNode* ASTparent = nullptr;
-		std::vector<char*> names;
-		std::map<char*, long long*> NUMs;
-		std::map<char*, long double*> DECs;
-		std::map<char*, std::string*> STRs;
-		std::map<char*, bool*> BOOLs;
-		std::map<char*, astNode*> OBJECTs;
+		StackFrame stack ;
 
 		memNode(astNode* parent)
 		{
@@ -59,47 +94,7 @@ namespace Memory
 			os << "{memNode} ";
 			os << "MEMparent: " << n.MEMparent << ", ASTparent: " << n.ASTparent << "\n";
 
-			if (!n.names.empty())
-			{
-				os << "Names: ";
-				for (auto& name : n.names) os << name << " ";
-				os << "\n";
-			}
-
-			if (!n.NUMs.empty())
-			{
-				os << "NUMs: ";
-				for (auto& [k, v] : n.NUMs) os << k << "=" << *v << " ";
-				os << "\n";
-			}
-
-			if (!n.DECs.empty())
-			{
-				os << "DECs: ";
-				for (auto& [k, v] : n.DECs) os << k << "=" << *v << " ";
-				os << "\n";
-			}
-
-			if (!n.STRs.empty())
-			{
-				os << "STRs: ";
-				for (auto& [k, v] : n.STRs) os << k << "=\"" << *v << "\" ";
-				os << "\n";
-			}
-
-			if (!n.BOOLs.empty())
-			{
-				os << "BOOLs: ";
-				for (auto& [k, v] : n.BOOLs) os << k << "=" << (*v ? "true" : "false") << " ";
-				os << "\n";
-			}
-
-			if (!n.OBJECTs.empty())
-			{
-				os << "OBJECTs: ";
-				for (auto& [k, v] : n.OBJECTs) os << k << "=" << v << " ";
-				os << "\n";
-			}
+			
 
 			return os;
 		}
@@ -109,50 +104,9 @@ namespace Memory
 			os << L"{memNode} ";
 			os << L"MEMparent: " << n.MEMparent << L", ASTparent: " << n.ASTparent << L"\n";
 
-			if (!n.names.empty())
-			{
-				os << L"Names: ";
-				for (auto& name : n.names) os << name << L" ";
-				os << L"\n";
-			}
-
-			if (!n.NUMs.empty())
-			{
-				os << L"NUMs: ";
-				for (auto& [k, v] : n.NUMs) os << k << L"=" << *v << L" ";
-				os << L"\n";
-			}
-
-			if (!n.DECs.empty())
-			{
-				os << L"DECs: ";
-				for (auto& [k, v] : n.DECs) os << k << L"=" << *v << L" ";
-				os << L"\n";
-			}
-
-			if (!n.STRs.empty())
-			{
-				os << L"STRs: ";
-				for (auto& [k, v] : n.STRs) 
-					os << k << L"=\"" << std::wstring(v->begin(), v->end()) << L"\" ";
-				os << L"\n";
-			}
-
-			if (!n.BOOLs.empty())
-			{
-				os << L"BOOLs: ";
-				for (auto& [k, v] : n.BOOLs) os << k << L"=" << (*v ? L"true" : L"false") << L" ";
-				os << L"\n";
-			}
-
-			if (!n.OBJECTs.empty())
-			{
-				os << L"OBJECTs: ";
-				for (auto& [k, v] : n.OBJECTs) os << k << L"=" << v << L" ";
-				os << L"\n";
-			}
+			
 
 			return os;
 		}
-	};
+	};*/
 }

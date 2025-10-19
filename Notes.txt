@@ -57,3 +57,8 @@ Copy unreals timeline I/O
 Variables will not be allowed to share name with keyword
 
 Root level dimensions variable
+
+
+I will need to implement custom stack frames for vars including arrays with known size.
+Constants, list contents, and contents of arrays with var size.
+A prepass will gather the bit count and store in every astNodeMem so they can create a susanne brand stack tm.

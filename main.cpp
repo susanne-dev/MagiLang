@@ -11,8 +11,8 @@ namespace MagiLang
 
 int main(int argc, char* argv[]) 
 {
-    token* t = new token();
-    astNode temp = astNode();
+    Token* t = new Token();
+    AstNode temp = AstNode();
 
     for (int i = 1; i < argc; i++)
     {

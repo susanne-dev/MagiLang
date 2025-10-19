@@ -1059,7 +1059,7 @@ YY_RULE_SETUP
 					astNodeStr* temp = new astNodeStr();
 					temp->chars = "String";
 					temp->value = strings;
-					temp->type = token::STRING;
+					temp->type = Token::STRING;
 					temp->location[0] = yylineno; temp->location[1] = yylloc.last_column; 
 					yylval.node = temp;
 					return CONSTANT;
@@ -1072,7 +1072,7 @@ case YY_STATE_EOF(IN_STRING):
 					astNodeStr* temp = new astNodeStr();
 					temp->chars = "String";
 					temp->value = strings;
-					temp->type = token::STRING;
+					temp->type = Token::STRING;
 					temp->location[0] = yylineno; temp->location[1] = yylloc.last_column; 
 					yylval.node = temp;
 					return CONSTANT;
@@ -1100,8 +1100,8 @@ case 13:
 YY_RULE_SETUP
 #line 67 "lexer.l"
 {
-																		yylval.t = new token();
-																		yylval.t->type = token::TYPE;
+																		yylval.t = new Token();
+																		yylval.t->type = Token::TYPE;
 																		yylval.t->chars = yytext;
 																		yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 																		return TYPE;
@@ -1111,8 +1111,8 @@ case 14:
 YY_RULE_SETUP
 #line 76 "lexer.l"
 {
-			yylval.t = new token();
-			yylval.t->type = token::IF;
+			yylval.t = new Token();
+			yylval.t->type = Token::IF;
 			yylval.t->chars = yytext;
 			yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 			return IF;
@@ -1122,8 +1122,8 @@ case 15:
 YY_RULE_SETUP
 #line 83 "lexer.l"
 {
-			yylval.t = new token();
-			yylval.t->type = token::ELSE;
+			yylval.t = new Token();
+			yylval.t->type = Token::ELSE;
 			yylval.t->chars = yytext;
 			yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 			return ELSE;
@@ -1136,7 +1136,7 @@ YY_RULE_SETUP
 					astNodeDec* temp = new astNodeDec();
 					temp->chars = yytext;
 					temp->value = std::stold(yytext);
-					temp->type = token::DECIMAL; 
+					temp->type = Token::DECIMAL; 
 					temp->location[0] = yylineno; temp->location[1] = yylloc.last_column; 
 					yylval.node = temp;
 					return CONSTANT;
@@ -1149,7 +1149,7 @@ YY_RULE_SETUP
 					astNodeInt* temp = new astNodeInt();
 					temp->chars = yytext;
 					temp->value = std::stoll(yytext);
-					temp->type = token::NUMBER; 
+					temp->type = Token::NUMBER; 
 					temp->location[0] = yylineno; temp->location[1] = yylloc.last_column; 
 					yylval.node = temp;
 					return CONSTANT;
@@ -1162,7 +1162,7 @@ YY_RULE_SETUP
 					astNodeBool* temp = new astNodeBool();
 					temp->chars = yytext;
 					temp->value = true;
-					temp->type = token::BOOL;
+					temp->type = Token::BOOL;
 					yylval.t->location[0] = yylineno; temp->location[1] = yylloc.last_column; 
 					yylval.node = temp;
 					return CONSTANT;
@@ -1175,7 +1175,7 @@ YY_RULE_SETUP
 					astNodeBool* temp = new astNodeBool();
 					temp->chars = yytext;
 					temp->value = false;
-					temp->type = token::BOOL;
+					temp->type = Token::BOOL;
 					yylval.t->location[0] = yylineno; temp->location[1] = yylloc.last_column; 
 					yylval.node = temp;
 					return CONSTANT;
@@ -1185,9 +1185,9 @@ case 20:
 YY_RULE_SETUP
 #line 129 "lexer.l"
 {
-							yylval.t = new token();
+							yylval.t = new Token();
 							yylval.t->chars = yytext;
-							yylval.t->type = token::VARIABLE;
+							yylval.t->type = Token::VARIABLE;
 							yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 							return NAME;
 						}
@@ -1196,8 +1196,8 @@ case 21:
 YY_RULE_SETUP
 #line 137 "lexer.l"
 {
-					yylval.t = new token(); 
-					yylval.t->type = token::BINARY_OPERATOR; 
+					yylval.t = new Token(); 
+					yylval.t->type = Token::BINARY_OPERATOR; 
 					yylval.t->chars = yytext; 
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return DOT;
@@ -1207,8 +1207,8 @@ case 22:
 YY_RULE_SETUP
 #line 145 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::BINARY_OPERATOR;
+					yylval.t = new Token();
+					yylval.t->type = Token::BINARY_OPERATOR;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return OPERATOR0;
@@ -1218,8 +1218,8 @@ case 23:
 YY_RULE_SETUP
 #line 152 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::BINARY_OPERATOR;
+					yylval.t = new Token();
+					yylval.t->type = Token::BINARY_OPERATOR;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return OPERATOR1;
@@ -1229,8 +1229,8 @@ case 24:
 YY_RULE_SETUP
 #line 159 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::BINARY_OPERATOR;
+					yylval.t = new Token();
+					yylval.t->type = Token::BINARY_OPERATOR;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return OPERATOR2;
@@ -1240,8 +1240,8 @@ case 25:
 YY_RULE_SETUP
 #line 166 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::BINARY_OPERATOR;
+					yylval.t = new Token();
+					yylval.t->type = Token::BINARY_OPERATOR;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return OPERATOR3;
@@ -1251,8 +1251,8 @@ case 26:
 YY_RULE_SETUP
 #line 174 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::UNARY_OPERATOR;
+					yylval.t = new Token();
+					yylval.t->type = Token::UNARY_OPERATOR;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return UNIOPERATOR0;
@@ -1262,8 +1262,8 @@ case 27:
 YY_RULE_SETUP
 #line 181 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::UNARY_OPERATOR;
+					yylval.t = new Token();
+					yylval.t->type = Token::UNARY_OPERATOR;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return UNIOPERATOR1;
@@ -1273,8 +1273,8 @@ case 28:
 YY_RULE_SETUP
 #line 189 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::LPAREN;
+					yylval.t = new Token();
+					yylval.t->type = Token::LPAREN;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return LPAREN;
@@ -1284,8 +1284,8 @@ case 29:
 YY_RULE_SETUP
 #line 196 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::LBRACK;
+					yylval.t = new Token();
+					yylval.t->type = Token::LBRACK;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return LBRACK;
@@ -1295,8 +1295,8 @@ case 30:
 YY_RULE_SETUP
 #line 203 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::LBRACE;
+					yylval.t = new Token();
+					yylval.t->type = Token::LBRACE;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return LBRACE;
@@ -1306,8 +1306,8 @@ case 31:
 YY_RULE_SETUP
 #line 210 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::RPAREN;
+					yylval.t = new Token();
+					yylval.t->type = Token::RPAREN;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return RPAREN;
@@ -1317,8 +1317,8 @@ case 32:
 YY_RULE_SETUP
 #line 217 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::RBRACK;
+					yylval.t = new Token();
+					yylval.t->type = Token::RBRACK;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return RBRACK;
@@ -1328,8 +1328,8 @@ case 33:
 YY_RULE_SETUP
 #line 224 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::RBRACE;
+					yylval.t = new Token();
+					yylval.t->type = Token::RBRACE;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return RBRACE;
@@ -1339,8 +1339,8 @@ case 34:
 YY_RULE_SETUP
 #line 232 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::SEMICOLON;
+					yylval.t = new Token();
+					yylval.t->type = Token::SEMICOLON;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return SEMICOLON;
@@ -1350,8 +1350,8 @@ case 35:
 YY_RULE_SETUP
 #line 240 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::TAG;
+					yylval.t = new Token();
+					yylval.t->type = Token::TAG;
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return TAG;
@@ -1360,8 +1360,8 @@ YY_RULE_SETUP
 case YY_STATE_EOF(INITIAL):
 #line 248 "lexer.l"
 {
-					yylval.t = new token();
-					yylval.t->type = token::LAST;
+					yylval.t = new Token();
+					yylval.t->type = Token::LAST;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
 					return END;
 				}
@@ -1370,7 +1370,7 @@ case 36:
 YY_RULE_SETUP
 #line 255 "lexer.l"
 {
-					yylval.t = new token(); 
+					yylval.t = new Token(); 
 					yylval.t->chars = yytext;
 					yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column;
 					return UNKNOWN;

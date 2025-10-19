@@ -38,17 +38,17 @@ void run(int argc, char* argv[])
 
     std::vector<MagiLang::errorClass> errorList;
 
-    astNode* root = parser_main(argc, argv, &errorList);
+    AstNode* root = parser_main(argc, argv, &errorList);
 
     if (cmdList["devbug"]) printAST(*root, "", cmdList);
 
-    Interpreter::preRun(root, errorList); //Link memories (soon to be removed), evaluate node health, etc
+    Interpreter::preRun(root, nullptr, errorList, 0); //Link memories (soon to be removed), evaluate node health, etc
     delete root;
     return;
     if (cmdList["devbug"]) //get left-most leaf
     {
         std::cout << "after///" << std::endl;
-        astNode* node = root;
+        AstNode* node = root;
     loop:
         if (node->nodes.size() > 0)
         {
@@ -58,7 +58,7 @@ void run(int argc, char* argv[])
         else
         {
             std::cout << *node << std::endl;
-            printMEM(node, cmdList);
+            //printMEM(node, cmdList);
         }
     }
 

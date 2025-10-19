@@ -17,7 +17,7 @@
       fprintf(stderr, "%s\n", msg);
    }
 
-	astNodeMem* root;
+	AstNodeMem* root;
 	std::vector<MagiLang::errorClass>* errorList;
 
 	#define YYERROR_VERBOSE 1

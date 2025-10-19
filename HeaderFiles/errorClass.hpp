@@ -11,7 +11,7 @@ namespace MagiLang
 		int location[4] = {0, 0, 0, 0};
 		token t = token();
 		std::string value = "EMPTY";
-		astNode* node;
+		AstNode* node;
 
 		errorClass()
 		{
@@ -36,7 +36,7 @@ namespace MagiLang
 			location[3] = l[3];
 		}
 
-		errorClass(std::string m, astNode* n, int(&l)[])
+		errorClass(std::string m, AstNode* n, int(&l)[])
 		{
 			message = m;
 			node = n;
@@ -46,7 +46,7 @@ namespace MagiLang
 			location[3] = l[3];
 		}
 
-		errorClass(std::string m, astNode* n, const int(&l)[4])
+		errorClass(std::string m, AstNode* n, const int(&l)[4])
 		{
 			message = m;
 			node = n;

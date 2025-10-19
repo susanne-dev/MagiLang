@@ -172,7 +172,7 @@ namespace MagiLang
 		return out;
 	}
 
-	struct token
+	struct Token
 	{
 		enum token_type
 		{
@@ -182,10 +182,11 @@ namespace MagiLang
 			STRING,
 			BOOL,
 			LIST,
+			CONSTANT, //will replace those above
 			BINARY_OPERATOR,
 			UNARY_OPERATOR,
 			TYPE,
-			OBJECTCALL,
+			FUNCTIONCALL,
 			VARIABLE,
 			TAG,
 			IF,
@@ -208,7 +209,7 @@ namespace MagiLang
 			ROOT
 		};
 
-		static std::string token_type_names[30];
+		static std::string token_type_names[31];
 
 
 
@@ -218,14 +219,14 @@ namespace MagiLang
 
 
 
-		token()
+		Token()
 		{
 			location[0] = -1;
 			location[1] = -1;
 			location[2] = -1;
 			location[3] = -1;
 		}
-		token(token* t)
+		Token(Token* t)
 		{
 			type = t->type;
 			location[0] = t->location[0];
@@ -233,7 +234,7 @@ namespace MagiLang
 			location[2] = t->location[2];
 			location[3] = t->location[3];
 		}
-		token(int (l)[])
+		Token(int (l)[])
 		{
 			location[0] = l[0];
 			location[1] = l[1];
@@ -251,24 +252,25 @@ namespace MagiLang
 			return "{Type: " + token_type_names[type] + "} {Value: " + chars + "} {Line: " + std::to_string(location[0]) + ", Char: " + std::to_string(location[1]) + "}"; 
 		}
 
-		friend std::ostream& operator<<(std::ostream& os, const token& t) 
+		friend std::ostream& operator<<(std::ostream& os, const Token& t) 
 		{
 			return os << "{Type: " + t.token_type_names[t.type] + "} {Value: " + t.chars + "} {Line: " + std::to_string(t.location[0]) + ", Char : " + std::to_string(t.location[1]) + "}";
 		}
 
-		bool operator == (const token& t) const
+		bool operator == (const Token& t) const
 		{
 			return (type == t.type && location[0] == t.location[0] && location[1] == t.location[1]);
 		}
 	};
 
-	std::string token::token_type_names[30] = {
+	std::string Token::token_type_names[31] = {
 		"COMMENT",
 		"NUMBER",
 		"DECIMAL",
 		"STRING",
 		"BOOL",
 		"LIST",
+		"CONSTANT",
 		"BINARY_OPERATOR", // + - / * etc
 		"UNARY_OPERATOR", // ++ -- etc
 		"TYPE",
