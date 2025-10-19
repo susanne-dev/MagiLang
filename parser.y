@@ -3,11 +3,12 @@
 	#include <vector>
 	#include <string>
 	#include <math.h>
-	#include "../HeaderFiles/errorClass.hpp"
 	#include "../HeaderFiles/node.hpp"
+	#include "../HeaderFiles/errorClass.hpp"
 	#include "../HeaderFiles/math.hpp"
 
-	extern FILE *yyin;
+	extern FILE* yyin;
+	extern char* yytext;
 
 	using namespace ObjectCalc;
 
@@ -84,12 +85,12 @@ tree			:	{ $$ = root; }
 
 lparen			:	LPAREN { $$ = new astNodeMem($1); delete $1; yylloc.first_line = $$->location[0]; yylloc.first_column = $$->location[1]; }
 				|	lparen node { $1->append($2); }
-paren			:	lparen RPAREN { $$ = $1; $$->location[2] = $2->location[0]; $$->location[3] = $2->location[1]; delete $2; $$->type = token::PAREN }
+paren			:	lparen RPAREN { $$ = $1; $$->location[2] = $2->location[0]; $$->location[3] = $2->location[1]; delete $2; $$->type = token::PAREN; }
 				|	lparen END { $$ = $1; $$->location[2] = $2->location[0]; $$->location[3] = $2->location[1]; }
 
 lbrack			:	LBRACK { $$ = new astNodeMem($1); delete $1; }
 				|	lbrack node { $1->append($2); }
-brack			:	lbrack RBRACK { $$ = $1; $$->location[2] = $2->location[0]; $$->location[3] = $2->location[1]; delete $2; $$->type = token::BRACK }
+brack			:	lbrack RBRACK { $$ = $1; $$->location[2] = $2->location[0]; $$->location[3] = $2->location[1]; delete $2; $$->type = token::BRACK; }
 				|	lbrack END { $$ = $1; $$->location[2] = $2->location[0]; $$->location[3] = $2->location[1]; }
 
 lbrace			:	LBRACE { $$ = new astNodeMem($1); delete $1; }

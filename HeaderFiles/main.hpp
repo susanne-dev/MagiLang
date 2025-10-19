@@ -1,5 +1,5 @@
 #include "interpreter.hpp"
-#include "../lex.yy.c"
+#include "../ObjectFiles/lex.yy.c"
 #include <random>
 #include <vector>
 

@@ -13,7 +13,7 @@ fb1-5:  fb1-5.l fb1-5.y
     g++ -c ./ObjectFiles/parser.tab.c -o ./ObjectFiles/parser.tab.o                     # Compiles the generated C files into object files inside ./ObjectFiles
     g++ -c ./ObjectFiles/lex.yy.c -o ./ObjectFiles/lex.yy.o                             # Compiles the generated C files into object files inside ./ObjectFiles
 
-    g++ -c src/main.cpp -o ./ObjectFiles/main.O                                         # Make the rest of the interpreter an object inside ./ObjectFiles
+    g++ -c ./main.cpp -o ./ObjectFiles/main.O                                         # Make the rest of the interpreter an object inside ./ObjectFiles
 
     g++ -o ./build/MagiLangInterpreter \                                                #Make final exe MagiLangInterpreter
     ./ObjectFiles/main.o \

@@ -64,11 +64,11 @@ namespace Interpreter
 
 	void preRun(astNode* root, std::vector<errorClass>& errorList)
 	{
-		for each (astNode * n in root->nodes)
+		for (astNode * node : root->nodes)
 		{
-			std::cout << token::token_type_names[n->type] << std::endl;
+			std::cout << token::token_type_names[node->type] << std::endl;
 
-			switch (n->type)
+			switch (node->type)
 			{
 			case ObjectCalc::token::NUMBER:
 				break;
@@ -95,18 +95,18 @@ namespace Interpreter
 			case ObjectCalc::token::VARIABLE:
 				break;
 			case ObjectCalc::token::RPAREN:
-				errorList.push_back(errorClass("", n->location));
+				errorList.push_back(errorClass("", node->location));
 				break;
 			case ObjectCalc::token::PAREN:
 				break;
 			case ObjectCalc::token::RBRACE:
-				errorList.push_back(errorClass("", n->location));
+				errorList.push_back(errorClass("", node->location));
 				break;
 			case ObjectCalc::token::BRACE:
-				((astNodeMem*)n)->memory->MEMparent = getMEM(root);
+				((astNodeMem*)node)->memory->MEMparent = getMEM(root);
 				break;
 			case ObjectCalc::token::RBRACK:
-				errorList.push_back(errorClass("", n->location));
+				errorList.push_back(errorClass("", node->location));
 				break;
 			case ObjectCalc::token::BRACK:
 				break;
@@ -119,7 +119,7 @@ namespace Interpreter
 			case ObjectCalc::token::GOTO:
 				break;
 			case ObjectCalc::token::UNKNOWN:
-				errorList.push_back(errorClass("", n->location));
+				errorList.push_back(errorClass("", node->location));
 				break;
 			default:
 				break;
@@ -129,7 +129,7 @@ namespace Interpreter
 
 	void freeMEM(std::vector<memNode*> list)
 	{
-		for each (memNode* node in list)
+		for (memNode* node : list) // LOOK HERE: this said astNode* node before. If memory leaks occur look here
 		{
 			delete node;
 		}
@@ -137,30 +137,30 @@ namespace Interpreter
 
 	void interpret(astNode* root, std::vector<errorClass>& errorList)
 	{
-		for each (astNode* n in root->nodes)
+		for (astNode* node : root->nodes)
 		{
-			std::cout << token::token_type_names[n->type] << std::endl;
+			std::cout << token::token_type_names[node->type] << std::endl;
 
-			if (n->bad) continue;
+			if (node->bad) continue;
 
-			switch (n->type)
+			switch (node->type)
 			{
 			case ObjectCalc::token::NUMBER:
-				std::cout << ((astNodeInt*)n)->value << std::endl;
+				std::cout << ((astNodeInt*)node)->value << std::endl;
 				break;
 			case ObjectCalc::token::DECIMAL:
-				std::cout << ((astNodeDec*)n)->value << std::endl;
+				std::cout << ((astNodeDec*)node)->value << std::endl;
 				break;
 			case ObjectCalc::token::STRING:
-				std::cout << ((astNodeStr*)n)->value << std::endl;
+				std::cout << ((astNodeStr*)node)->value << std::endl;
 				break;
 			case ObjectCalc::token::BOOL:
-				std::cout << ((astNodeBool*)n)->value << std::endl;
+				std::cout << ((astNodeBool*)node)->value << std::endl;
 				break;
 			case ObjectCalc::token::LIST:
 				break;
 			case ObjectCalc::token::BINARY_OPERATOR:
-				interpret(n, errorList);
+				interpret(node, errorList);
 				break;
 			case ObjectCalc::token::UNARY_OPERATOR:
 				break;
@@ -240,10 +240,10 @@ namespace Memory
 		}
 	}
 #else
-	void printMEM(const memNode& node, int counter, std::string mode)
+	void printMEM(const memNode& node, int counter, std::map<std::string, bool> mode)
 	{
-		if (node->MEMparent != nullptr)
-			printMEM(node->MEMparent, counter, mode);
+		if (node.MEMparent != nullptr)
+			printMEM(node.MEMparent, counter, mode);
 
 		for (int i = 0; i < counter; i++)
 		{
@@ -269,7 +269,7 @@ namespace Memory
 	}
 #endif
 
-	void printMEM(memNode* node, std::map<std::string, bool> mode)
+	void printMEM(memNode* node, int counter, std::map<std::string, bool> mode)
 	{
 		int counter = 0;
 #ifdef _WIN32

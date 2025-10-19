@@ -1,6 +1,6 @@
 #include <fstream>
 #include <iostream>
-#include "HeaderFiles/main.hpp"
+#include "./HeaderFiles/main.hpp"
 
 using namespace ObjectCalc;
 
