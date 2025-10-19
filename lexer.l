@@ -2,7 +2,7 @@
 	#include "parser.tab.h"
 	#include "parser.tab.c"
 	#include <iostream>
-	#include "HeaderFiles/node.hpp"
+	#include "../HeaderFiles/node.hpp"
 
 	#define YY_USER_ACTION { if (yylloc.last_line == yylineno) { yylloc.last_column += yyleng; } else { yylloc.last_column = 1; yylloc.last_line = yylineno; } }
 	//printf("YY_USER_ACTION");
@@ -64,13 +64,13 @@
 
 [ \n\t\r\b\s ]+	;
 
-"Num"|"Str"|"Dec"|"Bool"|"Object"|"List" {
-											yylval.t = new token();
-											yylval.t->type = token::TYPE;
-											yylval.t->chars = yytext;
-											yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
-											return TYPE;
-										}
+"u"?"int"(8|16|32|64)?|"float"(16|32|64)?|"bool"|"function"|"list"  {
+																		yylval.t = new token();
+																		yylval.t->type = token::TYPE;
+																		yylval.t->chars = yytext;
+																		yylval.t->location[0] = yylineno; yylval.t->location[1] = yylloc.last_column; 
+																		return TYPE;
+																	}
 
 
 "if" 	{
@@ -89,20 +89,20 @@
 		}
 
 	
-[0-9]+			{ 
-					astNodeInt* temp = new astNodeInt();
-					temp->chars = yytext;
-					temp->value = std::stoll(yytext);
-					temp->type = token::NUMBER; 
-					temp->location[0] = yylineno; temp->location[1] = yylloc.last_column; 
-					yylval.node = temp;
-					return CONSTANT;
-				}
 [0-9]+"."[0-9]+ { 
 					astNodeDec* temp = new astNodeDec();
 					temp->chars = yytext;
 					temp->value = std::stold(yytext);
 					temp->type = token::DECIMAL; 
+					temp->location[0] = yylineno; temp->location[1] = yylloc.last_column; 
+					yylval.node = temp;
+					return CONSTANT;
+				}
+[0-9]+			{ 
+					astNodeInt* temp = new astNodeInt();
+					temp->chars = yytext;
+					temp->value = std::stoll(yytext);
+					temp->type = token::NUMBER; 
 					temp->location[0] = yylineno; temp->location[1] = yylloc.last_column; 
 					yylval.node = temp;
 					return CONSTANT;

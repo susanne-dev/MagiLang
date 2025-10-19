@@ -63,7 +63,7 @@ namespace ObjectCalc
 
 		virtual ~astNode()
 		{
-			for each (astNode* node in nodes)
+			for (astNode* node : nodes)
 			{
 				delete node;
 			}
@@ -141,7 +141,7 @@ namespace ObjectCalc
 		{	
 			delete memory;
 
-			for each (astNode * node in nodes)
+			for (astNode * node : nodes)
 			{
 				delete node;
 			}	
@@ -211,7 +211,7 @@ namespace ObjectCalc
 		}
 	}
 #else
-	void printAST(std::string prefix, const astNode& node, bool isEnd, int counter, std::string mode)
+	void printAST(std::string prefix, const astNode& node, bool isEnd, int counter, std::map<std::string, bool> mode)
 	{
 
 		std::cout << prefix;
@@ -238,9 +238,9 @@ namespace ObjectCalc
 			for (int i = 0; i < node.nodes.size(); i++)
 			{
 				if (counter == node.nodes.size())
-					printAST(prefix + (isEnd ? "│   " : "    "), node.nodes[i], false, i, mode);
+					printAST(prefix + (isEnd ? "│   " : "    "), *node.nodes[i], false, i, mode);
 				else
-					printAST(prefix + (isEnd ? "│   " : "    "), node.nodes[i], true, i, mode);
+					printAST(prefix + (isEnd ? "│   " : "    "), *node.nodes[i], true, i, mode);
 				counter++;
 			}
 		}

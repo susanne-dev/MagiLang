@@ -3,9 +3,9 @@
 	#include <vector>
 	#include <string>
 	#include <math.h>
-	#include "HeaderFiles/errorClass.hpp"
-	#include "HeaderFiles/node.hpp"
-	#include "HeaderFiles/math.hpp"
+	#include "../HeaderFiles/errorClass.hpp"
+	#include "../HeaderFiles/node.hpp"
+	#include "../HeaderFiles/math.hpp"
 
 	extern FILE *yyin;
 
@@ -63,13 +63,14 @@
 %token<t> NAME TYPE TAG UNKNOWN END
 %token<node> CONSTANT
 %type<cnode> tree lparen lbrack lbrace paren brack brace
-%type<node> node powroot muldiv addsub equal type template
+%type<node> node powroot muldiv addsub equal type
 %type<node> ifstmnt ifempty iffull
+%precedence FUNC_CALL
 
 %locations
 %code requires {
-	#include "HeaderFiles/node.hpp"
-	#include "HeaderFiles/token.hpp"
+	#include "../HeaderFiles/node.hpp"
+	#include "../HeaderFiles/token.hpp"
 }
 
 %%
@@ -106,15 +107,16 @@ node			: 	node UNIOPERATOR0 { $$ = new astNode($2); delete $2; $$->append($1); }
 				|	TAG	{ $$ = new astNode($1); delete $1; }
 				|	CONSTANT { $$ = $1; }
 				|	NAME { $$ = new astNode($1); delete $1; }
-				|	NAME paren { $$ = new astNode($1); $$->type = token::OBJECTCALL; delete $1; $$->append($2); }
+				|	NAME paren { $$ = new astNode($1); $$->type = token::OBJECTCALL; delete $1; $$->append($2); } %prec FUNC_CALL
 				|	TYPE brace { $$ = $2; $$->type=token::UNKNOWN; } //NEEDS a new type for arrays
 				|	paren { $$ = $1; } | brack { $$ = $1; } /*| brace { $$ = new astNodeMem(*$1); /*Assume it is a code container and not an array* } Actually nvm other idea might solve MEM linking problem*/
 				//|	node SEMICOLON { $1->append(new astNode($2)); delete $2; }
 				|	error { $$ = new astNode(); $$->type = token::UNKNOWN; $$->location[0] = yylloc.last_line; $$->location[1] = yylloc.last_column; $$->chars = yytext; } //NOTE possibly injected instead of replacing.
-
+/*
 template		:	"<" TYPE ">" { $$ = new astNode($1); $$->type = token::OBJECTCALL; $$->append(new astNode($2)); delete $2;  }
 				|	"<"	error ">" { $$ = new astNode($1); $$->type = token::OBJECTCALL; $$->append(new astNode($2)); delete $2; }
-
+What does this even do??? I think it was a straight up copy of c++. Might actually be useful in the future. Add to %type<node>
+*/
 ifstmnt			:	iffull { $$ = $1; } 
 				|	ifempty { $$ = $1; }
 
