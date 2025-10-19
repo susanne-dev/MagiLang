@@ -35,7 +35,7 @@ namespace Interpreter
 	template <typename T>
 	T getValue(astNode* node)
 	{
-		switch (n->type)
+		switch (node->type)
 		{
 		case ObjectCalc::token::NUMBER:
 			break;
@@ -243,7 +243,7 @@ namespace Memory
 	void printMEM(const memNode& node, int counter, std::map<std::string, bool> mode)
 	{
 		if (node.MEMparent != nullptr)
-			printMEM(node.MEMparent, counter, mode);
+			printMEM(*node.MEMparent, counter, mode);
 
 		for (int i = 0; i < counter; i++)
 		{
@@ -271,7 +271,6 @@ namespace Memory
 
 	void printMEM(memNode* node, int counter, std::map<std::string, bool> mode)
 	{
-		int counter = 0;
 #ifdef _WIN32
 		int outmode = _setmode(_fileno(stdout), _O_U16TEXT);
 		printMEM(node, counter, mode);

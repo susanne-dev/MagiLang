@@ -2,21 +2,27 @@ fb1-5:  fb1-5.l fb1-5.y
     bison -b parser.y -d fb1-5.y
     flex lexer.l
     cc lex.yy.c -ll
-    notepad
     gcc -o fb1-5 fb1-5.tab.c lex.yy.c -lfl -ly -Wfatal-errors
 
-# New:
-    bison -d -o ./ObjectFiles/parser.tab.c parser.y                                     # Generates parser.tab.c and parser.tab.h in ./ObjectFiles
+New NOT:
+    bison -d -o ./GeneratedFiles/parser.tab.c parser.y                                     # Generates parser.tab.c and parser.tab.h in ./GeneratedFiles
 
-    flex -o ./ObjectFiles/lex.yy.c lexer.l                                              # Generates lex.yy.c in ./ObjectFiles
+    flex -o ./GeneratedFiles/lex.yy.c lexer.l                                              # Generates lex.yy.c in ./GeneratedFiles
 
-    g++ -c ./ObjectFiles/parser.tab.c -o ./ObjectFiles/parser.tab.o                     # Compiles the generated C files into object files inside ./ObjectFiles
-    g++ -c ./ObjectFiles/lex.yy.c -o ./ObjectFiles/lex.yy.o                             # Compiles the generated C files into object files inside ./ObjectFiles
+    g++ -c ./GeneratedFiles/parser.tab.c -o ./GeneratedFiles/parser.tab.o                     # Compiles the generated C files into object files inside ./GeneratedFiles
+    g++ -c ./GeneratedFiles/lex.yy.c -o ./GeneratedFiles/lex.yy.o                             # Compiles the generated C files into object files inside ./GeneratedFiles
 
-    g++ -c ./main.cpp -o ./ObjectFiles/main.O                                         # Make the rest of the interpreter an object inside ./ObjectFiles
+    g++ -c ./main.cpp -o ./GeneratedFiles/main.o                                         # Make the rest of the interpreter an object inside ./GeneratedFiles
 
     g++ -o ./build/MagiLangInterpreter \                                                #Make final exe MagiLangInterpreter
-    ./ObjectFiles/main.o \
-    ./ObjectFiles/parser.tab.o \
-    ./ObjectFiles/lex.yy.o \
+    ./GeneratedFiles/main.o \
+    ./GeneratedFiles/parser.tab.o \
+    ./GeneratedFiles/lex.yy.o \
     -lfl -ly -Wfatal-errors
+
+    g++ main.cpp -std=c++17 -o ./build/MagiLangInterpreter -lfl -Wfatal-errors
+
+Just run this:
+    bison -d -o ./GeneratedFiles/parser.tab.c parser.y
+    flex -o ./GeneratedFiles/lex.yy.c lexer.l
+    g++ main.cpp -std=c++17 -o ./build/MagiLangInterpreter -lfl -Wfatal-errors

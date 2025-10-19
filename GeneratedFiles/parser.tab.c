@@ -114,7 +114,7 @@
 		}
 	}*/
 
-#line 118 "./ObjectFiles/parser.tab.c"
+#line 118 "./GeneratedFiles/parser.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -1312,265 +1312,265 @@ yyreduce:
   case 2: /* tree: %empty  */
 #line 79 "parser.y"
                                 { (yyval.cnode) = root; }
-#line 1316 "./ObjectFiles/parser.tab.c"
+#line 1316 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 3: /* tree: tree node  */
 #line 80 "parser.y"
                                                   { (yyvsp[-1].cnode)->append((yyvsp[0].node)); }
-#line 1322 "./ObjectFiles/parser.tab.c"
+#line 1322 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 4: /* tree: tree brace  */
 #line 81 "parser.y"
                                                    { (yyvsp[-1].cnode)->append((yyvsp[0].cnode)); }
-#line 1328 "./ObjectFiles/parser.tab.c"
+#line 1328 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 5: /* tree: tree ifstmnt  */
 #line 82 "parser.y"
                                                      { (yyvsp[-1].cnode)->append((yyvsp[0].node)); }
-#line 1334 "./ObjectFiles/parser.tab.c"
+#line 1334 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 6: /* tree: tree SEMICOLON  */
 #line 83 "parser.y"
                                                        { delete (yyvsp[0].t); }
-#line 1340 "./ObjectFiles/parser.tab.c"
+#line 1340 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 7: /* tree: tree END  */
 #line 84 "parser.y"
                                                  { delete (yyvsp[0].t); YYACCEPT; }
-#line 1346 "./ObjectFiles/parser.tab.c"
+#line 1346 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 8: /* lparen: LPAREN  */
 #line 86 "parser.y"
                                        { (yyval.cnode) = new astNodeMem((yyvsp[0].t)); delete (yyvsp[0].t); yylloc.first_line = (yyval.cnode)->location[0]; yylloc.first_column = (yyval.cnode)->location[1]; }
-#line 1352 "./ObjectFiles/parser.tab.c"
+#line 1352 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 9: /* lparen: lparen node  */
 #line 87 "parser.y"
                                                     { (yyvsp[-1].cnode)->append((yyvsp[0].node)); }
-#line 1358 "./ObjectFiles/parser.tab.c"
+#line 1358 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 10: /* paren: lparen RPAREN  */
 #line 88 "parser.y"
                                               { (yyval.cnode) = (yyvsp[-1].cnode); (yyval.cnode)->location[2] = (yyvsp[0].t)->location[0]; (yyval.cnode)->location[3] = (yyvsp[0].t)->location[1]; delete (yyvsp[0].t); (yyval.cnode)->type = token::PAREN; }
-#line 1364 "./ObjectFiles/parser.tab.c"
+#line 1364 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 11: /* paren: lparen END  */
 #line 89 "parser.y"
                                                    { (yyval.cnode) = (yyvsp[-1].cnode); (yyval.cnode)->location[2] = (yyvsp[0].t)->location[0]; (yyval.cnode)->location[3] = (yyvsp[0].t)->location[1]; }
-#line 1370 "./ObjectFiles/parser.tab.c"
+#line 1370 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 12: /* lbrack: LBRACK  */
 #line 91 "parser.y"
                                        { (yyval.cnode) = new astNodeMem((yyvsp[0].t)); delete (yyvsp[0].t); }
-#line 1376 "./ObjectFiles/parser.tab.c"
+#line 1376 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 13: /* lbrack: lbrack node  */
 #line 92 "parser.y"
                                                     { (yyvsp[-1].cnode)->append((yyvsp[0].node)); }
-#line 1382 "./ObjectFiles/parser.tab.c"
+#line 1382 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 14: /* brack: lbrack RBRACK  */
 #line 93 "parser.y"
                                               { (yyval.cnode) = (yyvsp[-1].cnode); (yyval.cnode)->location[2] = (yyvsp[0].t)->location[0]; (yyval.cnode)->location[3] = (yyvsp[0].t)->location[1]; delete (yyvsp[0].t); (yyval.cnode)->type = token::BRACK; }
-#line 1388 "./ObjectFiles/parser.tab.c"
+#line 1388 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 15: /* brack: lbrack END  */
 #line 94 "parser.y"
                                                    { (yyval.cnode) = (yyvsp[-1].cnode); (yyval.cnode)->location[2] = (yyvsp[0].t)->location[0]; (yyval.cnode)->location[3] = (yyvsp[0].t)->location[1]; }
-#line 1394 "./ObjectFiles/parser.tab.c"
+#line 1394 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 16: /* lbrace: LBRACE  */
 #line 96 "parser.y"
                                        { (yyval.cnode) = new astNodeMem((yyvsp[0].t)); delete (yyvsp[0].t); }
-#line 1400 "./ObjectFiles/parser.tab.c"
+#line 1400 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 17: /* lbrace: lbrace node  */
 #line 97 "parser.y"
                                                     { (yyvsp[-1].cnode)->append((yyvsp[0].node)); }
-#line 1406 "./ObjectFiles/parser.tab.c"
+#line 1406 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 18: /* lbrace: lbrace brace  */
 #line 98 "parser.y"
                                                      { (yyvsp[-1].cnode)->append((yyvsp[0].cnode)); (yyvsp[0].cnode)->memory->MEMparent = (yyvsp[-1].cnode)->memory; }
-#line 1412 "./ObjectFiles/parser.tab.c"
+#line 1412 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 19: /* lbrace: lbrace SEMICOLON  */
 #line 99 "parser.y"
                                                          { delete (yyvsp[0].t); }
-#line 1418 "./ObjectFiles/parser.tab.c"
+#line 1418 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 20: /* brace: lbrace RBRACE  */
 #line 100 "parser.y"
                                               { (yyval.cnode) = (yyvsp[-1].cnode); (yyval.cnode)->location[2] = (yyvsp[0].t)->location[0]; (yyval.cnode)->location[3] = (yyvsp[0].t)->location[1]; delete (yyvsp[0].t); (yyval.cnode)->type = token::BRACE; }
-#line 1424 "./ObjectFiles/parser.tab.c"
+#line 1424 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 21: /* brace: lbrace END  */
 #line 101 "parser.y"
                                                    { (yyval.cnode) = (yyvsp[-1].cnode); (yyval.cnode)->location[2] = (yyvsp[0].t)->location[0]; (yyval.cnode)->location[3] = (yyvsp[0].t)->location[1]; (yyval.cnode)->type = token::BRACE;}
-#line 1430 "./ObjectFiles/parser.tab.c"
+#line 1430 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 22: /* node: node UNIOPERATOR0  */
 #line 103 "parser.y"
                                                   { (yyval.node) = new astNode((yyvsp[0].t)); delete (yyvsp[0].t); (yyval.node)->append((yyvsp[-1].node)); }
-#line 1436 "./ObjectFiles/parser.tab.c"
+#line 1436 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 23: /* node: UNIOPERATOR1 node  */
 #line 104 "parser.y"
                                                           { (yyval.node) = new astNode((yyvsp[-1].t)); delete (yyvsp[-1].t); (yyval.node)->append((yyvsp[0].node)); }
-#line 1442 "./ObjectFiles/parser.tab.c"
+#line 1442 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 24: /* node: UNKNOWN  */
 #line 105 "parser.y"
                                                 { (yyval.node) = new astNode((yyvsp[0].t)); delete (yyvsp[0].t); }
-#line 1448 "./ObjectFiles/parser.tab.c"
+#line 1448 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 25: /* node: addsub  */
 #line 106 "parser.y"
                                                { (yyval.node) = (yyvsp[0].node); }
-#line 1454 "./ObjectFiles/parser.tab.c"
+#line 1454 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 26: /* node: muldiv  */
 #line 106 "parser.y"
                                                                      { (yyval.node) = (yyvsp[0].node); }
-#line 1460 "./ObjectFiles/parser.tab.c"
+#line 1460 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 27: /* node: powroot  */
 #line 106 "parser.y"
                                                                                             { (yyval.node) = (yyvsp[0].node);}
-#line 1466 "./ObjectFiles/parser.tab.c"
+#line 1466 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 28: /* node: equal  */
 #line 106 "parser.y"
                                                                                                                 { (yyval.node) = (yyvsp[0].node); }
-#line 1472 "./ObjectFiles/parser.tab.c"
+#line 1472 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 29: /* node: type  */
 #line 107 "parser.y"
                                              { (yyval.node) = (yyvsp[0].node); }
-#line 1478 "./ObjectFiles/parser.tab.c"
+#line 1478 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 30: /* node: TAG  */
 #line 108 "parser.y"
                                                 { (yyval.node) = new astNode((yyvsp[0].t)); delete (yyvsp[0].t); }
-#line 1484 "./ObjectFiles/parser.tab.c"
+#line 1484 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 31: /* node: CONSTANT  */
 #line 109 "parser.y"
                                                  { (yyval.node) = (yyvsp[0].node); }
-#line 1490 "./ObjectFiles/parser.tab.c"
+#line 1490 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 32: /* node: NAME  */
 #line 110 "parser.y"
                                              { (yyval.node) = new astNode((yyvsp[0].t)); delete (yyvsp[0].t); }
-#line 1496 "./ObjectFiles/parser.tab.c"
+#line 1496 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 33: /* node: NAME paren  */
 #line 111 "parser.y"
                                                    { (yyval.node) = new astNode((yyvsp[-1].t)); (yyval.node)->type = token::OBJECTCALL; delete (yyvsp[-1].t); (yyval.node)->append((yyvsp[0].cnode)); }
-#line 1502 "./ObjectFiles/parser.tab.c"
+#line 1502 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 34: /* node: TYPE brace  */
 #line 112 "parser.y"
                                                    { (yyval.node) = (yyvsp[0].cnode); (yyval.node)->type=token::UNKNOWN; }
-#line 1508 "./ObjectFiles/parser.tab.c"
+#line 1508 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 35: /* node: paren  */
 #line 113 "parser.y"
                                               { (yyval.node) = (yyvsp[0].cnode); }
-#line 1514 "./ObjectFiles/parser.tab.c"
+#line 1514 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 36: /* node: brack  */
 #line 113 "parser.y"
                                                                    { (yyval.node) = (yyvsp[0].cnode); }
-#line 1520 "./ObjectFiles/parser.tab.c"
+#line 1520 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 37: /* node: error  */
 #line 115 "parser.y"
                                               { (yyval.node) = new astNode(); (yyval.node)->type = token::UNKNOWN; (yyval.node)->location[0] = yylloc.last_line; (yyval.node)->location[1] = yylloc.last_column; (yyval.node)->chars = yytext; }
-#line 1526 "./ObjectFiles/parser.tab.c"
+#line 1526 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 38: /* ifstmnt: iffull  */
 #line 121 "parser.y"
                                        { (yyval.node) = (yyvsp[0].node); }
-#line 1532 "./ObjectFiles/parser.tab.c"
+#line 1532 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 39: /* ifstmnt: ifempty  */
 #line 122 "parser.y"
                                                 { (yyval.node) = (yyvsp[0].node); }
-#line 1538 "./ObjectFiles/parser.tab.c"
+#line 1538 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 40: /* iffull: ifempty ELSE node  */
 #line 124 "parser.y"
                                                   { (yyval.node) = (yyvsp[-2].node); astNode* node = new astNode((yyvsp[-1].t)); delete (yyvsp[-1].t); node->append((yyvsp[0].node)); }
-#line 1544 "./ObjectFiles/parser.tab.c"
+#line 1544 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 41: /* iffull: ifempty ELSE brace  */
 #line 125 "parser.y"
                                                            { (yyval.node) = (yyvsp[-2].node); astNode* node = new astNode((yyvsp[-1].t)); delete (yyvsp[-1].t); node->append((yyvsp[0].cnode)); }
-#line 1550 "./ObjectFiles/parser.tab.c"
+#line 1550 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 42: /* ifempty: IF paren node  */
 #line 127 "parser.y"
                                               { (yyval.node) = new astNode((yyvsp[-2].t)); delete (yyvsp[-2].t); (yyval.node)->append((yyvsp[-1].cnode)); (yyval.node)->append((yyvsp[0].node)); }
-#line 1556 "./ObjectFiles/parser.tab.c"
+#line 1556 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 43: /* ifempty: IF paren brace  */
 #line 128 "parser.y"
                                                        { (yyval.node) = new astNode((yyvsp[-2].t)); delete (yyvsp[-2].t); (yyval.node)->append((yyvsp[-1].cnode)); (yyval.node)->append((yyvsp[0].cnode)); }
-#line 1562 "./ObjectFiles/parser.tab.c"
+#line 1562 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 44: /* type: TYPE NAME  */
 #line 130 "parser.y"
                                           { (yyval.node) = new astNode((yyvsp[-1].t)); (yyval.node)->append(new astNode((yyvsp[0].t))); delete (yyvsp[-1].t); delete (yyvsp[0].t); }
-#line 1568 "./ObjectFiles/parser.tab.c"
+#line 1568 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 45: /* type: TYPE NAME paren brace  */
 #line 131 "parser.y"
                                                               { (yyval.node) = new astNode((yyvsp[-3].t)); (yyval.node)->append(new astNode((yyvsp[-2].t))); delete (yyvsp[-3].t); delete (yyvsp[-2].t); (yyval.node)->append((yyvsp[-1].cnode)); (yyval.node)->append((yyvsp[0].cnode)); }
-#line 1574 "./ObjectFiles/parser.tab.c"
+#line 1574 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 46: /* addsub: node OPERATOR0 node  */
@@ -1581,7 +1581,7 @@ yyreduce:
 					(yyval.node)->append((yyvsp[-2].node));
 					(yyval.node)->append((yyvsp[0].node));
 				}
-#line 1585 "./ObjectFiles/parser.tab.c"
+#line 1585 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 47: /* muldiv: node OPERATOR1 node  */
@@ -1592,7 +1592,7 @@ yyreduce:
 					(yyval.node)->append((yyvsp[-2].node));
 					(yyval.node)->append((yyvsp[0].node));
 				}
-#line 1596 "./ObjectFiles/parser.tab.c"
+#line 1596 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 48: /* powroot: node OPERATOR2 node  */
@@ -1603,7 +1603,7 @@ yyreduce:
 					(yyval.node)->append((yyvsp[-2].node));
 					(yyval.node)->append((yyvsp[0].node));
 				}
-#line 1607 "./ObjectFiles/parser.tab.c"
+#line 1607 "./GeneratedFiles/parser.tab.c"
     break;
 
   case 49: /* equal: node OPERATOR3 node  */
@@ -1614,11 +1614,11 @@ yyreduce:
 					(yyval.node)->append((yyvsp[-2].node));
 					(yyval.node)->append((yyvsp[0].node));
 				}
-#line 1618 "./ObjectFiles/parser.tab.c"
+#line 1618 "./GeneratedFiles/parser.tab.c"
     break;
 
 
-#line 1622 "./ObjectFiles/parser.tab.c"
+#line 1622 "./GeneratedFiles/parser.tab.c"
 
       default: break;
     }

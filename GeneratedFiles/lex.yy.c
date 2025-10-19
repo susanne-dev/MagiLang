@@ -1,6 +1,6 @@
-#line 2 "./ObjectFiles/lex.yy.c"
+#line 2 "./GeneratedFiles/lex.yy.c"
 
-#line 4 "./ObjectFiles/lex.yy.c"
+#line 4 "./GeneratedFiles/lex.yy.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -709,9 +709,9 @@ char *yytext;
 	//yyleng
 
 	std::string strings;
-#line 713 "./ObjectFiles/lex.yy.c"
+#line 713 "./GeneratedFiles/lex.yy.c"
 
-#line 715 "./ObjectFiles/lex.yy.c"
+#line 715 "./GeneratedFiles/lex.yy.c"
 
 #define INITIAL 0
 #define IN_COMMENT 1
@@ -933,7 +933,7 @@ YY_DECL
 #line 20 "lexer.l"
 
 
-#line 937 "./ObjectFiles/lex.yy.c"
+#line 937 "./GeneratedFiles/lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1381,7 +1381,7 @@ YY_RULE_SETUP
 #line 262 "lexer.l"
 ECHO;
 	YY_BREAK
-#line 1385 "./ObjectFiles/lex.yy.c"
+#line 1385 "./GeneratedFiles/lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{

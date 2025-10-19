@@ -1,5 +1,5 @@
 #include "interpreter.hpp"
-#include "../ObjectFiles/lex.yy.c"
+#include "../GeneratedFiles/lex.yy.c"
 #include <random>
 #include <vector>
 
@@ -32,7 +32,7 @@ void run(int argc, char* argv[])
 
     if (argc < 2)
     {
-        std::cout << "\nUsage:\n\toclc --run \"file path\"" << std::endl;
+        std::cout << "\nUsage:\n\tMagiLang --run \"file path\"" << std::endl;
         return;
     }
 
